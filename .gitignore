@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+.env
+.env.production
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+coverage/
+.nyc_output/
+*.pem
+*.key
+*.cert
+docker-volumes/
+backup.sql
+nul
