@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /dashboard
+Disallow: /request-quote
+Disallow: /order/
+Disallow: /reset-password
+Disallow: /api/
+
+Sitemap: https://www.vitegourmand.fr/sitemap.xml
