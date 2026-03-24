@@ -21,23 +21,30 @@ class EmailService {
     // Use Brevo HTTP API if BREVO_API_KEY is set (Render blocks SMTP ports on free tier)
     const brevoKey = process.env.BREVO_API_KEY;
     if (brevoKey) {
+      const _from = this._from;
       this._transporter = {
         sendMail: async (opts) => {
+          const toEmail = typeof opts.to === 'string' ? opts.to : opts.to?.email || opts.to;
+          const fromEmail = opts.from || _from;
+          const payload = {
+            sender: { name: 'Vite & Gourmand', email: fromEmail },
+            to: [{ email: toEmail }],
+            subject: opts.subject,
+            htmlContent: opts.html || `<p>${opts.text || ''}</p>`,
+          };
+          logger.info({ to: toEmail, subject: opts.subject }, '[Brevo] Sending email');
           const res = await fetch('https://api.brevo.com/v3/smtp/email', {
             method: 'POST',
             headers: { 'accept': 'application/json', 'content-type': 'application/json', 'api-key': brevoKey },
-            body: JSON.stringify({
-              sender: { email: opts.from },
-              to: [{ email: opts.to }],
-              subject: opts.subject,
-              htmlContent: opts.html || opts.text || '',
-            }),
+            body: JSON.stringify(payload),
           });
+          const body = await res.text();
           if (!res.ok) {
-            const body = await res.text();
+            logger.error({ status: res.status, body }, '[Brevo] API error');
             throw new Error(`Brevo API error ${res.status}: ${body}`);
           }
-          return { messageId: (await res.json()).messageId };
+          logger.info({ body }, '[Brevo] Email sent');
+          return { messageId: JSON.parse(body).messageId };
         }
       };
       logger.info('[EmailService] Using Brevo HTTP API');
