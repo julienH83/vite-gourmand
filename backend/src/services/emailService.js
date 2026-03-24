@@ -18,15 +18,52 @@ class EmailService {
     }
     this._adminEmail = smtpConfig.adminEmail || this._from;
 
-    this._transporter = nodemailer.createTransport({
-      host: smtpConfig.host,
-      port: smtpConfig.port,
-      secure: false,
-      auth: smtpConfig.user ? {
-        user: smtpConfig.user,
-        pass: smtpConfig.pass,
-      } : undefined,
-    });
+    // Use Brevo HTTP API if BREVO_API_KEY is set (Render blocks SMTP ports on free tier)
+    const brevoKey = process.env.BREVO_API_KEY;
+    if (brevoKey) {
+      const _from = this._from;
+      this._transporter = {
+        sendMail: async (opts) => {
+          const toEmail = typeof opts.to === 'string' ? opts.to : opts.to?.email || opts.to;
+          const fromEmail = opts.from || _from;
+          const payload = {
+            sender: { name: 'Vite & Gourmand', email: fromEmail },
+            to: [{ email: toEmail }],
+            subject: opts.subject,
+            htmlContent: opts.html || `<p>${opts.text || ''}</p>`,
+          };
+          logger.info({ to: toEmail, subject: opts.subject }, '[Brevo] Sending email');
+          const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+            method: 'POST',
+            headers: { 'accept': 'application/json', 'content-type': 'application/json', 'api-key': brevoKey },
+            body: JSON.stringify(payload),
+          });
+          const body = await res.text();
+          if (!res.ok) {
+            logger.error({ status: res.status, body }, '[Brevo] API error');
+            throw new Error(`Brevo API error ${res.status}: ${body}`);
+          }
+          logger.info({ body }, '[Brevo] Email sent');
+          return { messageId: JSON.parse(body).messageId };
+        }
+      };
+      logger.info('[EmailService] Using Brevo HTTP API');
+    } else {
+      const port = smtpConfig.port;
+      this._transporter = nodemailer.createTransport({
+        host: smtpConfig.host,
+        port,
+        secure: port === 465,
+        connectionTimeout: 5000,
+        greetingTimeout: 5000,
+        socketTimeout: 10000,
+        auth: smtpConfig.user ? {
+          user: smtpConfig.user,
+          pass: smtpConfig.pass,
+        } : undefined,
+      });
+      logger.info('[EmailService] Using SMTP transport');
+    }
   }
 
   async sendWelcomeEmail(user) {

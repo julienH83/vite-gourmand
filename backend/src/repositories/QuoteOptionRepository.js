@@ -14,8 +14,10 @@ class QuoteOptionRepository {
     if (!includeInactive) {
       where = 'WHERE is_active = true';
     }
+    params.push(limit);
+    params.push(offset);
     const result = await this._db(client).query(
-      `SELECT * FROM quote_options ${where} ORDER BY label ASC LIMIT $${params.push(limit)} OFFSET $${params.push(offset)}`,
+      `SELECT * FROM quote_options ${where} ORDER BY label ASC LIMIT $${params.length - 1} OFFSET $${params.length}`,
       params
     );
     const count = await this._db(client).query(
