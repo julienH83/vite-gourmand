@@ -158,6 +158,9 @@ const aiController          = new AIController(aiService);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust proxy (Render, Vercel, etc.)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: {
