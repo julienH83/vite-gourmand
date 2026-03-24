@@ -1,17 +1,45 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
 build/
+
+# Environment variables (secrets)
 .env
-.env.production
-.env.local
+.env.*
+!.env.example
+frontend/.env
+
+# Logs
 *.log
+npm-debug.log*
+
+# OS files
 .DS_Store
 Thumbs.db
+nul
+
+# Test coverage
 coverage/
 .nyc_output/
+
+# SSL certificates
 *.pem
 *.key
 *.cert
+
+# Docker data
 docker-volumes/
+
+# Database dumps
 backup.sql
-nul
+*.dump
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary / generated docs
+docs/pdf/*.docx
+.claude/
