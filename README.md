@@ -36,13 +36,13 @@ docker exec vg_api npm run seed
 
 ## Comptes de test
 
-| Rôle       | Email                    | Mot de passe     |
-|------------|--------------------------|------------------|
-| Admin      | admin@vitegourmand.fr    | Admin123!@#      |
-| Employé    | employe@vitegourmand.fr  | Admin123!@#      |
-| Utilisateur| user@vitegourmand.fr     | Admin123!@#      |
+| Rôle        | Email                    | Mot de passe               |
+|-------------|--------------------------|----------------------------|
+| Admin       | admin@vitegourmand.fr    | *(voir fichier `.env`)*    |
+| Employé     | employe@vitegourmand.fr  | *(voir fichier `.env`)*    |
+| Utilisateur | user@vitegourmand.fr     | *(voir fichier `.env`)*    |
 
-> **Note :** Les mots de passe de seed utilisent le même hash bcrypt pour simplifier le développement. En production, chaque utilisateur aura son propre mot de passe sécurisé.
+> **Note :** Les identifiants de connexion sont définis dans le fichier `.env` (copié depuis `.env.example`). En production, chaque utilisateur dispose de son propre mot de passe sécurisé.
 
 ## Stack technique
 

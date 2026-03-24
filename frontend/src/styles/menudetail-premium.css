@@ -1,0 +1,554 @@
+/* ============================================================
+   Vite & Gourmand — Page Menu Detail, theme premium
+   Palette sombre : #0F1115 / #161A20 / #C6A15B / #F5F3EE
+   Scope : toutes les regles sous .mx pour isolation totale
+   ============================================================ */
+
+/* ── 0. Variables locales & reset ──────────────────────────── */
+.mx {
+  --mx-bg:      #0F1115;
+  --mx-surface: #161A20;
+  --mx-gold:    #C6A15B;
+  --mx-text:    #F5F3EE;
+  --mx-muted:   #A8A6A1;
+  --mx-border:  rgba(198, 161, 91, .12);
+  --mx-serif:   'Playfair Display', Georgia, serif;
+  --mx-sans:    'Open Sans', system-ui, sans-serif;
+
+  background: var(--mx-bg);
+  color: var(--mx-text);
+  font-family: var(--mx-sans);
+}
+.mx h1, .mx h2, .mx h3, .mx h4 { color: var(--mx-text); }
+.mx p  { color: var(--mx-muted); margin: 0; }
+.mx a  { color: var(--mx-gold); text-decoration: none; }
+.mx a:hover { text-decoration: underline; }
+
+/* ── 1. Hero ───────────────────────────────────────────────── */
+.mx-hero {
+  position: relative;
+  min-height: 62vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--mx-bg);
+}
+
+/* Image de fond dynamique (inline style) */
+.mx-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  animation: mxHeroKB 22s ease-in-out infinite alternate;
+}
+
+@keyframes mxHeroKB {
+  0%   { transform: scale(1)   translate(0, 0); }
+  100% { transform: scale(1.06) translate(-1%, -1.5%); }
+}
+
+/* Scrim overlay */
+.mx-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(15,17,21,.55) 0%, rgba(15,17,21,.3) 45%, transparent 75%),
+    linear-gradient(180deg, rgba(15,17,21,.2) 0%, rgba(15,17,21,.65) 60%, rgba(15,17,21,.95) 100%);
+}
+
+.mx-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px 52px;
+}
+
+/* Back link */
+.mx-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(245,243,238,.55);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: color .15s;
+}
+.mx-hero__back:hover { color: var(--mx-gold); text-decoration: none; }
+
+/* Meta line */
+.mx-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mx-gold);
+}
+.mx-hero__metaDot { opacity: .45; }
+
+.mx-hero__title {
+  font-family: var(--mx-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: .01em;
+}
+
+.mx-hero__desc {
+  max-width: 640px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(245,243,238,.58);
+  margin: 0;
+}
+
+/* Rating in hero */
+.mx-hero__rating {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 18px;
+}
+.mx-hero__stars {
+  color: var(--mx-gold);
+  font-size: 1.05rem;
+  letter-spacing: .08em;
+}
+.mx-hero__ratingText {
+  color: rgba(245,243,238,.4);
+  font-size: 0.85rem;
+}
+
+/* ── 2. Two-column layout ──────────────────────────────────── */
+.mx-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── 4. Main content (left) ────────────────────────────────── */
+.mx-main { min-width: 0; }
+
+/* Section blocks */
+.mx-section {
+  background: var(--mx-surface);
+  border: 1px solid var(--mx-border);
+  border-radius: 20px;
+  padding: 32px 36px;
+  margin-bottom: 32px;
+}
+
+.mx-section__header {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.mx-section__title {
+  margin: 0;
+  font-family: var(--mx-serif);
+  font-size: 1.45rem;
+  color: var(--mx-text);
+  letter-spacing: .01em;
+}
+.mx-section__divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--mx-gold), transparent 60%);
+}
+
+/* ── 5. Dish composition ───────────────────────────────────── */
+.mx-course { margin-top: 24px; }
+.mx-course:first-child { margin-top: 0; }
+
+.mx-course__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.mx-course__label {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--mx-gold);
+  white-space: nowrap;
+}
+.mx-course__choiceTag {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: .06em;
+  color: var(--mx-muted);
+  text-transform: none;
+  margin-left: 2px;
+}
+.mx-course__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(198,161,91,.22), transparent);
+}
+
+.mx-dishes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.mx-dish {
+  padding: 16px 18px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--mx-border);
+  border-radius: 14px;
+  transition: border-color .15s, background .15s;
+}
+.mx-dish:hover {
+  border-color: rgba(198,161,91,.25);
+  background: rgba(255,255,255,.05);
+}
+.mx-dish__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mx-text);
+  letter-spacing: .01em;
+}
+.mx-dish__desc {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--mx-muted);
+}
+
+/* Allergen badges */
+.mx-dish__allergens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.mx-allergen {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: #fbbf8c;
+  background: rgba(251,191,140,.1);
+  border: 1px solid rgba(251,191,140,.2);
+  border-radius: 20px;
+}
+
+/* Reassurance note */
+.mx-reassurance {
+  margin: 28px 0 0;
+  padding: 14px 18px;
+  background: rgba(198,161,91,.06);
+  border: 1px solid rgba(198,161,91,.14);
+  border-radius: 12px;
+  font-size: 0.88rem;
+  color: var(--mx-muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── 6. Reviews ────────────────────────────────────────────── */
+.mx-reviews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.mx-review {
+  padding: 18px 20px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--mx-border);
+  border-radius: 14px;
+}
+.mx-review__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.mx-review__author {
+  font-weight: 600;
+  color: var(--mx-text);
+  font-size: 0.95rem;
+}
+.mx-review__stars {
+  color: var(--mx-gold);
+  letter-spacing: .06em;
+  font-size: 0.95rem;
+}
+.mx-review__text {
+  margin: 0;
+  color: var(--mx-muted);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Empty state */
+.mx-reviews-empty {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--mx-muted);
+  font-size: 0.92rem;
+}
+.mx-reviews-empty__icon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 10px;
+  opacity: .4;
+}
+
+/* ── 7. Sidebar (right) ───────────────────────────────────── */
+.mx-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.mx-sidebar__card {
+  background: var(--mx-surface);
+  border: 1px solid var(--mx-border);
+  border-radius: 20px;
+  padding: 28px 26px;
+}
+
+/* Price block */
+.mx-sidebar__priceBlock {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--mx-border);
+}
+.mx-sidebar__price {
+  font-family: var(--mx-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mx-gold);
+}
+.mx-sidebar__per {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--mx-muted);
+}
+
+/* Meta infos */
+.mx-sidebar__infos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: grid;
+  gap: 10px;
+}
+.mx-sidebar__info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--mx-muted);
+}
+.mx-sidebar__infoIcon {
+  width: 18px;
+  text-align: center;
+  color: var(--mx-gold);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* CTA */
+.mx-sidebar__cta {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  border: none;
+  border-radius: 12px;
+  background: var(--mx-gold);
+  color: #13100a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition: transform .13s, filter .13s;
+}
+.mx-sidebar__cta:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+.mx-sidebar__cta:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+.mx-sidebar__quote {
+  display: block;
+  width: 100%;
+  padding: 13px 18px;
+  margin-top: 10px;
+  border: 1.5px solid var(--mx-gold);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--mx-gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.mx-sidebar__quote:hover {
+  background: rgba(198,161,91,.1);
+  text-decoration: none;
+}
+
+/* Conditions alert */
+.mx-sidebar__conditions {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: rgba(231,76,60,.08);
+  border: 1.5px solid rgba(231,76,60,.35);
+  border-radius: 12px;
+}
+.mx-sidebar__condTitle {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #ff9490;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: .05em;
+  margin-bottom: 8px;
+}
+.mx-sidebar__condText {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.85rem;
+  color: rgba(255,215,210,.7);
+}
+
+/* Stock badge */
+.mx-sidebar__stock {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: .08em;
+  color: var(--mx-muted);
+}
+.mx-sidebar__stock--low { color: #ff9490; }
+
+/* ── 8. Loading & error states ─────────────────────────────── */
+.mx-loading {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mx-bg);
+  color: var(--mx-muted);
+  font-size: 1rem;
+}
+
+.mx-error {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--mx-bg);
+  color: var(--mx-muted);
+  text-align: center;
+  padding: 60px 24px;
+}
+.mx-error__title {
+  font-family: var(--mx-serif);
+  font-size: 1.4rem;
+  color: var(--mx-text);
+  margin-bottom: 12px;
+}
+.mx-error__link {
+  margin-top: 20px;
+  color: var(--mx-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+.mx-error__link:hover { text-decoration: underline; }
+
+/* ── 9. Responsive ─────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .mx-body {
+    grid-template-columns: 1fr;
+    padding: 32px 24px 60px;
+  }
+
+  /* Sidebar becomes full-width card above composition on mobile */
+  .mx-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .mx-hero__inner { padding: 60px 24px 40px; }
+  .mx-gallery { padding: 0 24px; }
+  .mx-reviews { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .mx-hero { min-height: 50vh; }
+  .mx-hero__inner { padding: 48px 18px 32px; }
+  .mx-gallery { padding: 0 18px; }
+  .mx-gallery__thumb { width: 88px; height: 60px; }
+  .mx-body { padding: 24px 18px 48px; gap: 24px; }
+  .mx-section { padding: 24px 20px; border-radius: 16px; }
+  .mx-sidebar__card { padding: 22px 20px; border-radius: 16px; }
+
+  /* Accordion: course sections collapsible */
+  .mx-course__header { cursor: pointer; user-select: none; }
+  .mx-course__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--mx-border);
+    background: transparent;
+    color: var(--mx-gold);
+    font-size: 0.85rem;
+    margin-left: auto;
+    cursor: pointer;
+    transition: transform .2s;
+    flex-shrink: 0;
+  }
+  .mx-course__toggle--open { transform: rotate(180deg); }
+  .mx-dishes--collapsed { display: none; }
+}
+
+/* Show toggle only on small screens */
+@media (min-width: 601px) {
+  .mx-course__toggle { display: none; }
+}
