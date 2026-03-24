@@ -90,7 +90,7 @@ class OrderService {
       try {
         await this._emailService.sendDepositRequestEmail(orderUser, order, menu);
       } catch (err) {
-        logger.error('Failed to send order confirmation email:', err.message);
+        logger.error({ err, code: err.code, response: err.response, command: err.command }, 'Failed to send order confirmation email');
       }
 
       try {
