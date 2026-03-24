@@ -190,6 +190,8 @@ app.use(cors({
   origin: (origin, cb) => {
     // Allow server-to-server calls (no Origin header) or listed origins
     if (!origin || _corsOrigins.includes(origin)) return cb(null, true);
+    // Allow all Vercel preview deployments
+    if (origin && origin.endsWith('.vercel.app')) return cb(null, true);
     cb(new Error(`CORS: origin "${origin}" not allowed`));
   },
   credentials: true,
