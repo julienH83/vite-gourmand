@@ -18,10 +18,11 @@ class EmailService {
     }
     this._adminEmail = smtpConfig.adminEmail || this._from;
 
+    const port = smtpConfig.port;
     this._transporter = nodemailer.createTransport({
       host: smtpConfig.host,
-      port: smtpConfig.port,
-      secure: false,
+      port,
+      secure: port === 465,
       connectionTimeout: 5000,
       greetingTimeout: 5000,
       socketTimeout: 10000,
