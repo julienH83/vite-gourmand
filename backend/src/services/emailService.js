@@ -22,6 +22,9 @@ class EmailService {
       host: smtpConfig.host,
       port: smtpConfig.port,
       secure: false,
+      connectionTimeout: 5000,
+      greetingTimeout: 5000,
+      socketTimeout: 10000,
       auth: smtpConfig.user ? {
         user: smtpConfig.user,
         pass: smtpConfig.pass,
