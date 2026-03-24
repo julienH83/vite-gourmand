@@ -18,19 +18,45 @@ class EmailService {
     }
     this._adminEmail = smtpConfig.adminEmail || this._from;
 
-    const port = smtpConfig.port;
-    this._transporter = nodemailer.createTransport({
-      host: smtpConfig.host,
-      port,
-      secure: port === 465,
-      connectionTimeout: 5000,
-      greetingTimeout: 5000,
-      socketTimeout: 10000,
-      auth: smtpConfig.user ? {
-        user: smtpConfig.user,
-        pass: smtpConfig.pass,
-      } : undefined,
-    });
+    // Use Brevo HTTP API if BREVO_API_KEY is set (Render blocks SMTP ports on free tier)
+    const brevoKey = process.env.BREVO_API_KEY;
+    if (brevoKey) {
+      this._transporter = {
+        sendMail: async (opts) => {
+          const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+            method: 'POST',
+            headers: { 'accept': 'application/json', 'content-type': 'application/json', 'api-key': brevoKey },
+            body: JSON.stringify({
+              sender: { email: opts.from },
+              to: [{ email: opts.to }],
+              subject: opts.subject,
+              htmlContent: opts.html || opts.text || '',
+            }),
+          });
+          if (!res.ok) {
+            const body = await res.text();
+            throw new Error(`Brevo API error ${res.status}: ${body}`);
+          }
+          return { messageId: (await res.json()).messageId };
+        }
+      };
+      logger.info('[EmailService] Using Brevo HTTP API');
+    } else {
+      const port = smtpConfig.port;
+      this._transporter = nodemailer.createTransport({
+        host: smtpConfig.host,
+        port,
+        secure: port === 465,
+        connectionTimeout: 5000,
+        greetingTimeout: 5000,
+        socketTimeout: 10000,
+        auth: smtpConfig.user ? {
+          user: smtpConfig.user,
+          pass: smtpConfig.pass,
+        } : undefined,
+      });
+      logger.info('[EmailService] Using SMTP transport');
+    }
   }
 
   async sendWelcomeEmail(user) {
