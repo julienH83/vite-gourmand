@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -29,6 +29,12 @@ const AdminDashboard = lazy(() => import('./pages/dashboard/AdminDashboard'));
 const OrderDetail = lazy(() => import('./pages/dashboard/OrderDetail'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function ProtectedRoute({ children, roles }) {
   const { user, loading } = useAuth();
   if (loading) return <div className="loading">Chargement...</div>;
@@ -40,6 +46,7 @@ function ProtectedRoute({ children, roles }) {
 export default function App() {
   return (
     <ErrorBoundary>
+      <ScrollToTop />
       <a href="#main-content" className="skip-link">Aller au contenu principal</a>
       <Header />
       <main id="main-content">
