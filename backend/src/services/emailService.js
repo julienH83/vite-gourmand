@@ -271,6 +271,24 @@ class EmailService {
     });
   }
 
+  async sendContactReplyEmail(originalMessage, replyContent) {
+    const title = escapeHtml(originalMessage.title);
+    const content = escapeHtml(replyContent);
+    await this._transporter.sendMail({
+      from: this._from,
+      to: originalMessage.email,
+      subject: `Re: ${originalMessage.title} - Vite & Gourmand`,
+      html: `
+      <h1>Réponse à votre message</h1>
+      <p>Bonjour,</p>
+      <p>L'équipe Vite &amp; Gourmand a répondu à votre message <strong>"${title}"</strong> :</p>
+      <blockquote style="border-left: 3px solid #c8a75e; padding-left: 16px; margin: 16px 0; color: #333;">${content}</blockquote>
+      <p>Vous pouvez consulter la conversation complète et répondre depuis votre espace personnel sur <a href="${this._frontendUrl}/dashboard/messages">notre plateforme</a>.</p>
+      <p>Cordialement,<br/>L'équipe Vite &amp; Gourmand</p>
+    `,
+    });
+  }
+
   async sendAccountDeletedEmail(user) {
     const name = escapeHtml(user.first_name);
     await this._transporter.sendMail({

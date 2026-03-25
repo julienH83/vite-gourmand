@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { Routes, Route, NavLink, useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import OrderDetail from './OrderDetail';
 import QuoteDetail from '../QuoteDetail';
@@ -590,6 +590,154 @@ function HoursManagement() {
   );
 }
 
+// Gestion des messages de contact (employé — lecture + réponse, sans suppression)
+function EmpMessagesManagement() {
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState('all');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    api.get('/contact').then(r => r.json()).then(setMessages).catch(() => {}).finally(() => setLoading(false));
+  }, []);
+
+  const handleMarkAsRead = async (id) => {
+    await api.put(`/contact/${id}/read`);
+    setMessages(msgs => msgs.map(m => m.id === id ? { ...m, is_read: true } : m));
+  };
+
+  const filtered = filter === 'all' ? messages : filter === 'unread' ? messages.filter(m => !m.is_read) : messages.filter(m => m.is_read);
+  const unreadCount = messages.filter(m => !m.is_read).length;
+
+  if (loading) return <div className="loading">Chargement...</div>;
+
+  return (
+    <div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+        <h2>Messages de contact</h2>
+        {unreadCount > 0 && <span className="badge badge-warning">{unreadCount} non lu{unreadCount > 1 ? 's' : ''}</span>}
+      </div>
+      <div className="filters" style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+        <button className={`btn btn-small ${filter === 'all' ? 'btn-primary' : 'btn-outline'}`} onClick={() => setFilter('all')}>Tous ({messages.length})</button>
+        <button className={`btn btn-small ${filter === 'unread' ? 'btn-primary' : 'btn-outline'}`} onClick={() => setFilter('unread')}>Non lus ({unreadCount})</button>
+        <button className={`btn btn-small ${filter === 'read' ? 'btn-primary' : 'btn-outline'}`} onClick={() => setFilter('read')}>Lus ({messages.length - unreadCount})</button>
+      </div>
+      {filtered.length === 0 ? (
+        <p className="mt-4 text-muted">Aucun message.</p>
+      ) : (
+        <div className="table-responsive">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Statut</th>
+                <th>Date</th>
+                <th>Email</th>
+                <th>Sujet</th>
+                <th>Réponses</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map(m => (
+                <tr key={m.id} style={{ fontWeight: m.is_read ? 'normal' : 'bold', cursor: 'pointer' }} onClick={() => navigate(`/dashboard/messages/${m.id}`)}>
+                  <td>{m.is_read ? '✓ Lu' : '● Nouveau'}</td>
+                  <td>{new Date(m.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
+                  <td>{m.email}{m.user_first_name ? ` (${m.user_first_name} ${m.user_last_name})` : ''}</td>
+                  <td>{m.title}</td>
+                  <td>{m.reply_count || 0}</td>
+                  <td onClick={e => e.stopPropagation()}>
+                    {!m.is_read && <button className="btn btn-small btn-outline" onClick={() => handleMarkAsRead(m.id)}>Marquer lu</button>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function EmpMessageDetail() {
+  const { id } = useParams();
+  const [message, setMessage] = useState(null);
+  const [replyContent, setReplyContent] = useState('');
+  const [sending, setSending] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const fetchMessage = useCallback(() => {
+    api.get(`/contact/${id}`).then(r => r.json()).then(setMessage).catch(() => navigate('/dashboard/messages')).finally(() => setLoading(false));
+  }, [id, navigate]);
+
+  useEffect(() => { fetchMessage(); }, [fetchMessage]);
+
+  useEffect(() => {
+    if (message && !message.is_read) {
+      api.put(`/contact/${id}/read`);
+    }
+  }, [message, id]);
+
+  const handleReply = async (e) => {
+    e.preventDefault();
+    if (!replyContent.trim()) return;
+    setSending(true);
+    try {
+      await api.post(`/contact/${id}/reply`, { content: replyContent });
+      setReplyContent('');
+      fetchMessage();
+    } catch { /* ignore */ }
+    setSending(false);
+  };
+
+  if (loading) return <div className="loading">Chargement...</div>;
+  if (!message) return null;
+
+  return (
+    <div>
+      <button className="btn btn-outline btn-small" onClick={() => navigate('/dashboard/messages')} style={{ marginBottom: '1rem' }}>← Retour aux messages</button>
+      <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+        <h2 style={{ margin: 0 }}>{message.title}</h2>
+        <p className="text-muted" style={{ margin: '0.5rem 0' }}>
+          De : <strong>{message.email}</strong>
+          {message.user_first_name && ` (${message.user_first_name} ${message.user_last_name})`}
+          {' — '}
+          {new Date(message.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+        </p>
+        <div style={{ marginTop: '1rem', padding: '1rem', background: 'var(--color-bg)', borderRadius: 'var(--radius)', whiteSpace: 'pre-wrap' }}>
+          {message.description}
+        </div>
+      </div>
+
+      <h3>Conversation ({message.replies?.length || 0} réponse{(message.replies?.length || 0) > 1 ? 's' : ''})</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
+        {message.replies?.map(r => (
+          <div key={r.id} style={{
+            padding: '1rem',
+            borderRadius: 'var(--radius)',
+            background: r.role === 'client' ? 'var(--color-bg)' : '#e8f4e8',
+            borderLeft: `4px solid ${r.role === 'client' ? 'var(--color-accent)' : '#4caf50'}`,
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+              <strong>{r.first_name} {r.last_name} <span className="text-muted">({r.role})</span></strong>
+              <small className="text-muted">{new Date(r.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</small>
+            </div>
+            <p style={{ margin: 0, whiteSpace: 'pre-wrap' }}>{r.content}</p>
+          </div>
+        ))}
+      </div>
+
+      <form onSubmit={handleReply} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <h3>Répondre</h3>
+        <textarea value={replyContent} onChange={e => setReplyContent(e.target.value)} placeholder="Votre réponse..." rows={4} required className="form-input" style={{ resize: 'vertical' }} />
+        <div>
+          <button type="submit" className="btn btn-primary" disabled={sending}>{sending ? 'Envoi...' : 'Envoyer la réponse'}</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 export default function EmployeeDashboard() {
   return (
     <div className="dashboard">
@@ -598,6 +746,7 @@ export default function EmployeeDashboard() {
         <NavLink to="/dashboard/quotes">Devis</NavLink>
         <NavLink to="/dashboard/menus">Menus</NavLink>
         <NavLink to="/dashboard/dishes">Plats</NavLink>
+        <NavLink to="/dashboard/messages">Messages</NavLink>
         <NavLink to="/dashboard/reviews">Avis</NavLink>
         <NavLink to="/dashboard/hours">Horaires</NavLink>
       </aside>
@@ -616,6 +765,8 @@ export default function EmployeeDashboard() {
           <Route path="quotes/:id" element={<QuoteDetail />} />
           <Route path="menus" element={<MenusManagement />} />
           <Route path="dishes" element={<DishesManagement />} />
+          <Route path="messages" element={<EmpMessagesManagement />} />
+          <Route path="messages/:id" element={<EmpMessageDetail />} />
           <Route path="reviews" element={<ReviewsManagement />} />
           <Route path="hours" element={<HoursManagement />} />
           <Route path="orders/:id" element={<OrderDetail />} />

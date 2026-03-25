@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, NavLink, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { Routes, Route, NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { api } from '../../services/api';
 import OrderDetail from './OrderDetail';
@@ -476,6 +476,118 @@ function DashboardSummary() {
   );
 }
 
+// Mes messages de contact
+function MyMessages() {
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    api.get('/contact/mine').then(r => r.json()).then(setMessages).catch(() => {}).finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <div className="loading">Chargement...</div>;
+
+  return (
+    <div>
+      <h2>Mes messages</h2>
+      {messages.length === 0 ? (
+        <p className="mt-4 text-muted">Vous n'avez envoyé aucun message. Utilisez la <a href="/contact">page de contact</a> pour nous écrire.</p>
+      ) : (
+        <div className="grid grid-1 mt-4" style={{ gap: '1rem' }}>
+          {messages.map(m => (
+            <div key={m.id} className="card" style={{ padding: '1rem', cursor: 'pointer' }} onClick={() => navigate(`/dashboard/messages/${m.id}`)}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h3 style={{ margin: 0 }}>{m.title}</h3>
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                  {Number(m.reply_count) > 0 && <span className="badge badge-success">{m.reply_count} réponse{Number(m.reply_count) > 1 ? 's' : ''}</span>}
+                  <small className="text-muted">{new Date(m.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</small>
+                </div>
+              </div>
+              <p className="text-muted" style={{ margin: '0.5rem 0 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{m.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function UserMessageDetail() {
+  const { id } = useParams();
+  const [message, setMessage] = useState(null);
+  const [replyContent, setReplyContent] = useState('');
+  const [sending, setSending] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const fetchMessage = useCallback(() => {
+    api.get(`/contact/${id}`).then(r => r.json()).then(setMessage).catch(() => navigate('/dashboard/messages')).finally(() => setLoading(false));
+  }, [id, navigate]);
+
+  useEffect(() => { fetchMessage(); }, [fetchMessage]);
+
+  const handleReply = async (e) => {
+    e.preventDefault();
+    if (!replyContent.trim()) return;
+    setSending(true);
+    try {
+      await api.post(`/contact/${id}/reply`, { content: replyContent });
+      setReplyContent('');
+      fetchMessage();
+    } catch { /* ignore */ }
+    setSending(false);
+  };
+
+  if (loading) return <div className="loading">Chargement...</div>;
+  if (!message) return null;
+
+  return (
+    <div>
+      <button className="btn btn-outline btn-small" onClick={() => navigate('/dashboard/messages')} style={{ marginBottom: '1rem' }}>← Retour à mes messages</button>
+      <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+        <h2 style={{ margin: 0 }}>{message.title}</h2>
+        <p className="text-muted" style={{ margin: '0.5rem 0' }}>
+          Envoyé le {new Date(message.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+        </p>
+        <div style={{ marginTop: '1rem', padding: '1rem', background: 'var(--color-bg)', borderRadius: 'var(--radius)', whiteSpace: 'pre-wrap' }}>
+          {message.description}
+        </div>
+      </div>
+
+      {message.replies?.length > 0 && (
+        <>
+          <h3>Conversation ({message.replies.length} réponse{message.replies.length > 1 ? 's' : ''})</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
+            {message.replies.map(r => (
+              <div key={r.id} style={{
+                padding: '1rem',
+                borderRadius: 'var(--radius)',
+                background: r.role === 'client' ? 'var(--color-bg)' : '#e8f4e8',
+                borderLeft: `4px solid ${r.role === 'client' ? 'var(--color-accent)' : '#4caf50'}`,
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <strong>{r.role === 'client' ? 'Vous' : `${r.first_name} (Équipe Vite & Gourmand)`}</strong>
+                  <small className="text-muted">{new Date(r.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</small>
+                </div>
+                <p style={{ margin: 0, whiteSpace: 'pre-wrap' }}>{r.content}</p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      <form onSubmit={handleReply} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <h3>Répondre</h3>
+        <textarea value={replyContent} onChange={e => setReplyContent(e.target.value)} placeholder="Votre message..." rows={4} required className="form-input" style={{ resize: 'vertical' }} />
+        <div>
+          <button type="submit" className="btn btn-primary" disabled={sending}>{sending ? 'Envoi...' : 'Envoyer'}</button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 export default function UserDashboard() {
   return (
     <div className="dashboard">
@@ -483,6 +595,7 @@ export default function UserDashboard() {
       <aside className="dashboard-sidebar" role="navigation" aria-label="Menu utilisateur">
         <NavLink to="/dashboard" end>Mes commandes</NavLink>
         <NavLink to="/dashboard/quotes">Mes devis</NavLink>
+        <NavLink to="/dashboard/messages">Mes messages</NavLink>
         <NavLink to="/dashboard/profile">Mon profil</NavLink>
       </aside>
       <div className="dashboard-content">
@@ -499,6 +612,8 @@ export default function UserDashboard() {
           <Route index element={<MyOrders />} />
           <Route path="quotes" element={<MyQuotes />} />
           <Route path="quotes/:id" element={<QuoteDetail />} />
+          <Route path="messages" element={<MyMessages />} />
+          <Route path="messages/:id" element={<UserMessageDetail />} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="orders/:id" element={<OrderDetail />} />
         </Routes>

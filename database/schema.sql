@@ -249,6 +249,7 @@ CREATE TABLE IF NOT EXISTS contact_messages (
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     email VARCHAR(255) NOT NULL,
+    user_id UUID REFERENCES users(id) ON DELETE SET NULL,
     is_read BOOLEAN NOT NULL DEFAULT false,
     -- NC-15 : traçabilité traitement des messages (qui a lu + quand)
     read_by  UUID REFERENCES users(id) ON DELETE SET NULL,
@@ -257,6 +258,20 @@ CREATE TABLE IF NOT EXISTS contact_messages (
 );
 
 CREATE INDEX IF NOT EXISTS idx_contact_messages_is_read ON contact_messages(is_read);
+CREATE INDEX IF NOT EXISTS idx_contact_messages_user_id ON contact_messages(user_id);
+
+-- ============================================================
+-- TABLE: contact_replies
+-- ============================================================
+CREATE TABLE IF NOT EXISTS contact_replies (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    message_id UUID NOT NULL REFERENCES contact_messages(id) ON DELETE CASCADE,
+    author_id UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,
+    content TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_contact_replies_message_id ON contact_replies(message_id);
 
 -- ============================================================
 -- TABLE: employee_contact_logs
