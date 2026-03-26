@@ -45,10 +45,6 @@ export default function Home() {
             <Link to="/request-quote" className="btn btn-ghost">Demander un devis</Link>
           </div>
         </div>
-        <div className="hero__scroll" aria-hidden="true">
-          <span className="hero__scroll-arrow">↓</span>
-          <span>Découvrir</span>
-        </div>
       </section>
 
       {/* ── ENGAGEMENTS ── */}
