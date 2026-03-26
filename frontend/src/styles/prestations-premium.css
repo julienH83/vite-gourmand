@@ -477,27 +477,27 @@
   z-index: 0;
 }
 
-/* Overlay dégradé sombre sur l'image */
+/* Overlay dégradé — image bien visible, texte lisible */
 .pp-prest__visual::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(15,17,21,.2) 0%,
-    rgba(15,17,21,.75) 45%,
-    rgba(15,17,21,.92) 70%,
-    rgba(15,17,21,.97) 100%
+    rgba(15,17,21,.05) 0%,
+    rgba(15,17,21,.35) 40%,
+    rgba(15,17,21,.75) 65%,
+    rgba(15,17,21,.9) 100%
   );
   z-index: 1;
 }
 .pp-prest--flip .pp-prest__visual::after {
   background: linear-gradient(
     to left,
-    rgba(15,17,21,.2) 0%,
-    rgba(15,17,21,.75) 45%,
-    rgba(15,17,21,.92) 70%,
-    rgba(15,17,21,.97) 100%
+    rgba(15,17,21,.05) 0%,
+    rgba(15,17,21,.35) 40%,
+    rgba(15,17,21,.75) 65%,
+    rgba(15,17,21,.9) 100%
   );
 }
 
