@@ -1932,6 +1932,155 @@ tbody tr:hover { background: rgba(200,167,94,.06); }
   100% { transform: scaleX(1); }
 }
 
+/* ── ANIMATIONS GLOBALES — toutes les pages ── */
+
+/* Hero — entrée en cascade (toutes pages) */
+.mn-hero__kicker, .ct-hero__kicker, .bv-hero__kicker, .lg-hero__kicker,
+.page-hero__kicker {
+  animation: fadeSlideUp 0.8s ease-out 0.1s both;
+}
+.mn-hero__title, .ct-hero__title, .bv-hero__title, .lg-hero__title,
+.page-hero__title {
+  animation: fadeSlideUp 0.8s ease-out 0.3s both;
+}
+.mn-hero__sub, .ct-hero__sub, .bv-hero__sub, .lg-hero__sub,
+.page-hero__subtitle {
+  animation: fadeSlideUp 0.8s ease-out 0.5s both;
+}
+.mn-hero__rule, .ct-hero__rule, .lg-hero__rule,
+.page-hero__actions {
+  animation: fadeSlideUp 0.8s ease-out 0.65s both;
+}
+.mn-hero__note, .ct-hero__note, .bv-hero__note, .lg-hero__note {
+  animation: fadeSlideUp 0.8s ease-out 0.8s both;
+}
+
+/* Cards menus page catalogue — cascade */
+.mn-card { animation: fadeSlideUp 0.5s ease-out both; }
+.mn-card:nth-child(1)  { animation-delay: 0.05s; }
+.mn-card:nth-child(2)  { animation-delay: 0.1s; }
+.mn-card:nth-child(3)  { animation-delay: 0.15s; }
+.mn-card:nth-child(4)  { animation-delay: 0.2s; }
+.mn-card:nth-child(5)  { animation-delay: 0.25s; }
+.mn-card:nth-child(6)  { animation-delay: 0.3s; }
+
+/* Cards menus — hover lévitation + zoom image */
+.mn-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.mn-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.12), 0 0 0 1px rgba(200,167,94,.12);
+}
+.mn-card__visual img {
+  transition: transform 0.5s ease;
+}
+.mn-card:hover .mn-card__visual img {
+  transform: scale(1.06);
+}
+
+/* Contact — animation des blocs */
+.ct-card, .ct-form {
+  animation: fadeSlideUp 0.7s ease-out both;
+}
+.ct-card { animation-delay: 0.15s; }
+.ct-form { animation-delay: 0.3s; }
+
+/* Contact FAQ — animation cascade */
+.ct-faq__item { animation: fadeSlideUp 0.5s ease-out both; }
+.ct-faq__item:nth-child(1) { animation-delay: 0.1s; }
+.ct-faq__item:nth-child(2) { animation-delay: 0.2s; }
+.ct-faq__item:nth-child(3) { animation-delay: 0.3s; }
+.ct-faq__item:nth-child(4) { animation-delay: 0.4s; }
+.ct-faq__item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Boissons — catégories en cascade */
+.bv-cat { animation: fadeSlideUp 0.6s ease-out both; }
+.bv-cat:nth-child(1) { animation-delay: 0.1s; }
+.bv-cat:nth-child(2) { animation-delay: 0.25s; }
+.bv-cat:nth-child(3) { animation-delay: 0.4s; }
+.bv-cat:nth-child(4) { animation-delay: 0.55s; }
+
+/* Boissons items — hover */
+.bv-item {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.bv-item:hover {
+  transform: translateX(6px);
+  background: rgba(200,167,94,.06);
+}
+
+/* Login/Register — formulaire slide in */
+.lg-aside, .lg-form-wrap {
+  animation: fadeSlideUp 0.7s ease-out both;
+}
+.lg-aside { animation-delay: 0.15s; }
+.lg-form-wrap { animation-delay: 0.3s; }
+
+/* Prestations — config cards cascade */
+.config-card { animation: fadeSlideUp 0.6s ease-out both; }
+.config-card:nth-child(1) { animation-delay: 0.1s; }
+.config-card:nth-child(2) { animation-delay: 0.25s; }
+.config-card:nth-child(3) { animation-delay: 0.4s; }
+.config-card:nth-child(4) { animation-delay: 0.55s; }
+.config-card:nth-child(5) { animation-delay: 0.7s; }
+.config-card:nth-child(6) { animation-delay: 0.85s; }
+
+/* Config cards — hover élégant */
+.config-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.config-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.1), 0 0 0 1px rgba(200,167,94,.15);
+}
+
+/* Steps grid — cascade */
+.steps-grid .engagement-card { animation: fadeSlideUp 0.6s ease-out both; }
+.steps-grid .engagement-card:nth-child(1) { animation-delay: 0.1s; }
+.steps-grid .engagement-card:nth-child(2) { animation-delay: 0.25s; }
+.steps-grid .engagement-card:nth-child(3) { animation-delay: 0.4s; }
+.steps-grid .engagement-card:nth-child(4) { animation-delay: 0.55s; }
+
+/* Menu detail — sections */
+.mn-detail__composition, .mn-detail__reviews, .mn-detail__sidebar {
+  animation: fadeSlideUp 0.7s ease-out both;
+}
+.mn-detail__composition { animation-delay: 0.1s; }
+.mn-detail__reviews { animation-delay: 0.25s; }
+.mn-detail__sidebar { animation-delay: 0.15s; }
+
+/* Boutons globaux — effet shine au hover */
+.btn-primary, .bv-btn, .mn-order-btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after, .bv-btn::after, .mn-order-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  transform: translateX(-100%);
+}
+.btn-primary:hover::after, .bv-btn:hover::after, .mn-order-btn:hover::after {
+  animation: btnShine 0.6s ease-out;
+}
+
+/* Inputs focus — glow doré subtil */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(200,167,94,.2), 0 0 15px rgba(200,167,94,.08) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Page transitions douces */
+.mn, .ct, .bv, .lg {
+  animation: pageEnter 0.4s ease-out;
+}
+@keyframes pageEnter {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* ── HOME PAGE — responsive ── */
 @media (max-width: 768px) {
   .hero--fullscreen { min-height: 80vh; min-height: 80svh; }
