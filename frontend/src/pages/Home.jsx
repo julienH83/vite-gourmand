@@ -1,11 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
 import Seo from '../components/Seo';
 import { resolveMenuImage, FALLBACK_IMG } from '../utils/menuImage';
 
+// Hook pour animer les éléments au scroll
+function useScrollReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('revealed');
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
 export default function Home() {
   const [menus, setMenus] = useState([]);
+  const whyUsRef = useScrollReveal();
+  const processRef = useScrollReveal();
+  const menusRef = useScrollReveal();
+  const reviewsRef = useScrollReveal();
 
   useEffect(() => {
     api.get('/menus').then(r => r.json()).then(data => setMenus(data.slice(0, 3))).catch(() => {});
@@ -52,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* ── ENGAGEMENTS ── */}
-      <section className="whyUs" aria-label="Nos engagements">
+      <section className="whyUs scroll-reveal" ref={whyUsRef} aria-label="Nos engagements">
         <div className="whyUs__inner">
           <header className="whyUs__head">
             <span className="whyUs__kicker">Pourquoi nous choisir</span>
@@ -78,7 +103,7 @@ export default function Home() {
       </section>
 
       {/* ── COMMENT ÇA MARCHE ── */}
-      <section className="home-process" aria-label="Comment ça marche">
+      <section className="home-process scroll-reveal" ref={processRef} aria-label="Comment ça marche">
         <div className="container">
           <p className="section-label">Simple &amp; rapide</p>
           <h2 className="section-title">Comment ça marche ?</h2>
@@ -109,7 +134,7 @@ export default function Home() {
 
       {/* ── MENUS POPULAIRES ── */}
       {menus.length > 0 && (
-        <section className="home-menus" aria-label="Menus populaires">
+        <section className="home-menus scroll-reveal" ref={menusRef} aria-label="Menus populaires">
           <div className="container">
             <p className="section-label">Notre sélection</p>
             <h2 className="section-title">Nos menus populaires</h2>
@@ -146,7 +171,7 @@ export default function Home() {
 
       {/* ── AVIS CLIENTS ── */}
       {reviews.length > 0 && (
-        <section className="home-reviews" aria-label="Avis clients">
+        <section className="home-reviews scroll-reveal" ref={reviewsRef} aria-label="Avis clients">
           <div className="container">
             <p className="section-label">Ils nous font confiance</p>
             <h2 className="section-title">Ce que disent nos clients</h2>

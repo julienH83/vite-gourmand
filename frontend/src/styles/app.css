@@ -1798,6 +1798,171 @@ tbody tr:hover { background: rgba(200,167,94,.06); }
   border-radius: 20px;
 }
 
+/* ── SCROLL REVEAL — animations au défilement ── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cascade sur les enfants des sections révélées */
+.scroll-reveal.revealed .whyUs__item,
+.scroll-reveal.revealed .process-step,
+.scroll-reveal.revealed .card,
+.scroll-reveal.revealed .review-card--luxe {
+  opacity: 0;
+  animation: revealChild 0.6s ease-out forwards;
+}
+
+.scroll-reveal.revealed .whyUs__item:nth-child(1),
+.scroll-reveal.revealed .process-step:nth-child(1),
+.scroll-reveal.revealed .card:nth-child(1),
+.scroll-reveal.revealed .review-card--luxe:nth-child(1) { animation-delay: 0.1s; }
+
+.scroll-reveal.revealed .whyUs__item:nth-child(2),
+.scroll-reveal.revealed .process-step:nth-child(2),
+.scroll-reveal.revealed .card:nth-child(2),
+.scroll-reveal.revealed .review-card--luxe:nth-child(2) { animation-delay: 0.25s; }
+
+.scroll-reveal.revealed .whyUs__item:nth-child(3),
+.scroll-reveal.revealed .process-step:nth-child(3),
+.scroll-reveal.revealed .card:nth-child(3),
+.scroll-reveal.revealed .review-card--luxe:nth-child(3) { animation-delay: 0.4s; }
+
+.scroll-reveal.revealed .process-step:nth-child(4),
+.scroll-reveal.revealed .review-card--luxe:nth-child(4) { animation-delay: 0.55s; }
+
+.scroll-reveal.revealed .review-card--luxe:nth-child(5) { animation-delay: 0.7s; }
+.scroll-reveal.revealed .review-card--luxe:nth-child(6) { animation-delay: 0.85s; }
+
+@keyframes revealChild {
+  0%   { opacity: 0; transform: translateY(30px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Section titles — animation douce ── */
+.scroll-reveal.revealed .section-label,
+.scroll-reveal.revealed .whyUs__kicker {
+  animation: labelSlideIn 0.7s ease-out 0.05s both;
+}
+.scroll-reveal.revealed .section-title,
+.scroll-reveal.revealed .whyUs__title {
+  animation: titleSlideIn 0.7s ease-out 0.15s both;
+}
+
+@keyframes labelSlideIn {
+  0%   { opacity: 0; transform: translateY(15px); letter-spacing: 0.5em; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: 0.2em; }
+}
+@keyframes titleSlideIn {
+  0%   { opacity: 0; transform: translateY(20px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Cartes menu — hover amélioré ── */
+.home-menus .card {
+  transition: transform 0.4s cubic-bezier(.22,.61,.36,1), box-shadow 0.4s ease;
+}
+.home-menus .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.15), 0 0 0 1px rgba(200,167,94,.15);
+}
+.home-menus .card:hover .card-image img {
+  transform: scale(1.08);
+}
+.home-menus .card .card-image img {
+  transition: transform 0.6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* ── Process steps — numéro animé ── */
+.process-step {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.process-step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+.process-step__number {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.process-step:hover .process-step__number {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(200,167,94,.4);
+}
+
+/* ── Avis — hover glow doré ── */
+.review-card--luxe {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.review-card--luxe:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,.1), 0 0 0 1px rgba(200,167,94,.25);
+}
+
+/* ── Étoiles dorées — scintillement ── */
+.review-card--luxe:hover .stars {
+  animation: starsSparkle 0.6s ease-in-out;
+}
+@keyframes starsSparkle {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.2); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ── WhyUs items — hover élégant ── */
+.whyUs__item {
+  transition: transform 0.3s ease;
+}
+.whyUs__item:hover {
+  transform: translateY(-5px);
+}
+.whyUs__num {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.whyUs__item:hover .whyUs__num {
+  text-shadow: 0 0 25px rgba(200,167,94,.5);
+}
+
+/* ── Boutons — effet ripple au hover ── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: translateX(-100%);
+  transition: none;
+}
+.btn-primary:hover::after {
+  animation: btnShine 0.6s ease-out;
+}
+@keyframes btnShine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Section separators — ligne dorée animée ── */
+.whyUs__rule, .whyUs__itemRule {
+  position: relative;
+  overflow: hidden;
+}
+.scroll-reveal.revealed .whyUs__rule,
+.scroll-reveal.revealed .whyUs__itemRule {
+  animation: ruleGrow 1s ease-out 0.3s both;
+}
+@keyframes ruleGrow {
+  0%   { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
 /* ── HOME PAGE — responsive ── */
 @media (max-width: 768px) {
   .hero--fullscreen { min-height: 80vh; min-height: 80svh; }
