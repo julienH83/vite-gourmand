@@ -53,45 +53,39 @@ Cookies strictement nécessaires uniquement (session, authentification). Aucun c
 CNIL : www.cnil.fr — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07`
       },
       "mentions_legales": {
-        title: 'Mentions légales',
+        title: ‘Mentions légales’,
         updated_at: today,
         content: `# Mentions légales
 
 ## 1. Éditeur du site
-**Vite & Gourmand** — Traiteur événementiel à Bordeaux.  
-Adresse : 10 Place de la Bourse, 33000 Bordeaux  
-Téléphone : 05 56 00 00 00  
-Email : contact@vitegourmand.fr  
+**Vite & Gourmand** — SARL au capital de 10 000 €
+Siège social : 10 Place de la Bourse, 33000 Bordeaux
+SIRET : 123 456 789 00012 — RCS Bordeaux : 123 456 789
+TVA intracommunautaire : FR 12 123456789
+Directeurs de la publication : Julie et José, co-gérants
+Tél. : 05 56 00 00 00 — Email : contact@vitegourmand.fr
 
 ## 2. Hébergement
-Hébergeur : **[à compléter]**  
-Adresse : **[à compléter]**  
-Téléphone : **[à compléter]**  
-Site : **[à compléter]**
+**Vercel Inc.** — 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis — vercel.com
+**Render Services, Inc.** — 525 Brannan Street, Suite 300, San Francisco, CA 94107, États-Unis — render.com
 
-## 3. Propriété intellectuelle
-L’ensemble des contenus présents sur le site (textes, images, photographies, logos, éléments graphiques, structure) est protégé par le droit de la propriété intellectuelle. Toute reproduction, représentation, modification ou diffusion sans autorisation préalable est interdite.
+## 3. Activité
+Vite & Gourmand exerce une activité de traiteur événementiel (mariages, séminaires, anniversaires, cocktails) dans la région bordelaise, dans le respect des réglementations en matière d’hygiène et de sécurité alimentaire.
 
-## 4. Données personnelles (RGPD)
-Les données personnelles collectées via le site (formulaire de contact, compte client, commandes) sont utilisées uniquement pour le traitement des demandes, la gestion des commandes et la relation client.
+## 4. Propriété intellectuelle
+L’ensemble des éléments du site (textes, photographies, logos, code source, structure) est protégé par le Code de la propriété intellectuelle. Toute reproduction sans autorisation écrite préalable est interdite.
 
-- Responsable du traitement : Vite & Gourmand
-- Finalités : demandes, devis, commandes, facturation, support
-- Base légale : exécution du contrat / intérêt légitime / consentement (selon le cas)
-- Durée de conservation : [à compléter]
-- Destinataires : personnel habilité + prestataires techniques (hébergement, emails)
+## 5. Données personnelles
+Les données collectées sont traitées conformément au RGPD. Vous disposez de droits d’accès, rectification, effacement, limitation, portabilité et opposition. Contact : contact@vitegourmand.fr. Consultez notre Politique de confidentialité pour en savoir plus.
 
-Conformément à la réglementation, vous disposez d’un droit d’accès, de rectification, d’opposition, d’effacement, de limitation et de portabilité.  
-Pour exercer vos droits : **contact@vitegourmand.fr**
+## 6. Cookies
+Cookies strictement nécessaires uniquement (session, authentification). Aucun cookie publicitaire ou de suivi.
 
-## 5. Cookies
-Le site peut utiliser des cookies nécessaires à son bon fonctionnement (session, authentification). Les cookies de mesure d’audience ou publicitaires ne sont déposés qu’avec votre consentement, le cas échéant.
+## 7. Responsabilité
+Les informations publiées sont fournies à titre indicatif. Les photographies de menus peuvent varier selon les saisons. Vite & Gourmand décline toute responsabilité en cas d’interruption du site ou d’incompatibilité technique.
 
-## 6. Responsabilité
-Vite & Gourmand met tout en œuvre pour assurer l’exactitude des informations publiées. Toutefois, des erreurs ou omissions peuvent survenir. L’utilisateur est invité à vérifier les informations et à signaler toute anomalie.
-
-## 7. Droit applicable
-Les présentes mentions légales sont soumises au droit français. En cas de litige, et à défaut de solution amiable, les tribunaux compétents seront ceux du ressort du siège social de l’éditeur, sauf disposition légale impérative contraire.`
+## 8. Droit applicable
+Droit français. Tribunaux compétents de Bordeaux en cas de litige.`
       }
     };
   }, []);

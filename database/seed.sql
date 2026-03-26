@@ -45,7 +45,85 @@ INSERT INTO business_hours (day_of_week, open_time, close_time, is_closed) VALUE
 -- LEGAL PAGES
 -- ============================================================
 INSERT INTO legal_pages (type, title, content) VALUES
-('mentions_legales', 'Mentions légales', 'Mentions légales - Contenu de démonstration.'),
+('mentions_legales', 'Mentions légales', '# Mentions légales
+
+## 1. Éditeur du site
+
+Le site vitegourmand.fr est édité par :
+
+**Vite & Gourmand**
+Forme juridique : Société à responsabilité limitée (SARL)
+Capital social : 10 000 €
+Siège social : 10 Place de la Bourse, 33000 Bordeaux
+SIRET : 123 456 789 00012
+RCS Bordeaux : 123 456 789
+Numéro de TVA intracommunautaire : FR 12 123456789
+Directeurs de la publication : Julie et José, co-gérants
+
+Téléphone : 05 56 00 00 00
+Email : contact@vitegourmand.fr
+
+## 2. Hébergement
+
+Le site est hébergé par :
+
+**Vercel Inc.**
+440 N Barranca Avenue #4133
+Covina, CA 91723, États-Unis
+Site : vercel.com
+
+**Render Services, Inc.**
+525 Brannan Street, Suite 300
+San Francisco, CA 94107, États-Unis
+Site : render.com
+
+## 3. Activité
+
+Vite & Gourmand exerce une activité de traiteur événementiel. L''entreprise propose des prestations de restauration pour des événements privés et professionnels (mariages, séminaires, anniversaires, cocktails) dans la région bordelaise. L''entreprise est soumise aux réglementations en matière d''hygiène et de sécurité alimentaire (paquet hygiène, règlement CE n° 852/2004).
+
+## 4. Propriété intellectuelle
+
+L''ensemble des éléments composant le site vitegourmand.fr (textes, photographies, illustrations, logos, icônes, structure générale, code source, bases de données) constitue une œuvre protégée par les dispositions du Code de la propriété intellectuelle.
+
+Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, par quelque procédé que ce soit, sans l''autorisation écrite préalable de Vite & Gourmand, est strictement interdite et constitue un acte de contrefaçon sanctionné par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
+
+## 5. Données personnelles
+
+Les informations recueillies sur ce site font l''objet d''un traitement informatique destiné à la gestion des commandes, des demandes de devis et de la relation client. Le responsable de traitement est Vite & Gourmand.
+
+Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi Informatique et Libertés, vous disposez d''un droit d''accès, de rectification, d''effacement, de limitation, de portabilité et d''opposition sur vos données personnelles.
+
+Pour exercer ces droits ou pour toute question relative à vos données : contact@vitegourmand.fr
+
+Pour en savoir plus, consultez notre Politique de confidentialité.
+
+## 6. Cookies
+
+Le site utilise exclusivement des cookies nécessaires au fonctionnement du service (authentification, maintien de session). Aucun cookie à des fins publicitaires ou de mesure d''audience n''est utilisé. Conformément aux recommandations de la CNIL, ces cookies ne nécessitent pas de consentement préalable.
+
+## 7. Limitation de responsabilité
+
+Vite & Gourmand s''efforce d''assurer l''exactitude et la mise à jour des informations publiées sur son site. Toutefois, elle ne saurait garantir l''exhaustivité ou l''absence d''erreurs. Les photographies et illustrations de menus sont présentées à titre indicatif ; la présentation des plats peut varier selon les saisons et la disponibilité des produits.
+
+Vite & Gourmand décline toute responsabilité en cas d''interruption du site, de survenance de bugs ou d''incompatibilité du site avec le matériel de l''utilisateur.
+
+## 8. Liens hypertextes
+
+Le site peut contenir des liens vers des sites extérieurs. Vite & Gourmand n''exerce aucun contrôle sur le contenu de ces sites tiers et décline toute responsabilité quant à leur contenu ou à l''utilisation qui en est faite.
+
+## 9. Droit applicable
+
+Les présentes mentions légales sont soumises au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux compétents de Bordeaux seront seuls compétents.
+
+## 10. Contact
+
+Pour toute question relative au site :
+
+Vite & Gourmand
+10 Place de la Bourse, 33000 Bordeaux
+Tél. : 05 56 00 00 00
+Email : contact@vitegourmand.fr
+Horaires : du lundi au vendredi, 9h – 18h'),
 ('cgv', 'Conditions Générales de Vente', '# Conditions Générales de Vente
 
 **En vigueur au 1er janvier 2026**
