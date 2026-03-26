@@ -1652,6 +1652,16 @@ tbody tr:hover { background: rgba(200,167,94,.06); }
 .review-card--luxe .review-author { font-weight: 700; color: var(--color-text); }
 .review-card--luxe .review-text { color: var(--color-grey); font-size: 0.9rem; line-height: 1.7; margin-bottom: var(--sp-3); }
 .review-card--luxe .review-menu { font-size: 0.78rem; color: var(--color-accent); font-weight: 600; }
+.review-card--luxe .review-verified {
+  display: inline-block;
+  margin-top: var(--sp-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 0.2em 0.7em;
+  border-radius: 20px;
+}
 
 /* ── HOME PAGE — responsive ── */
 @media (max-width: 768px) {

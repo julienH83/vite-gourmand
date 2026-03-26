@@ -156,6 +156,7 @@ export default function Home() {
                   </div>
                   <p className="review-text">{review.comment}</p>
                   <small className="review-menu">Menu : {review.menu_title}</small>
+                  <span className="review-verified">✓ Avis vérifié</span>
                 </div>
               ))}
             </div>
