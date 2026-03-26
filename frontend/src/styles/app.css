@@ -1798,70 +1798,39 @@ tbody tr:hover { background: rgba(200,167,94,.06); }
   border-radius: 20px;
 }
 
-/* ── SCROLL REVEAL — animations au défilement ── */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
-}
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
+/* ── ANIMATIONS SECTIONS — CSS pur, pas de JS ── */
+@keyframes fadeSlideUp {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Cascade sur les enfants des sections révélées */
-.scroll-reveal.revealed .whyUs__item,
-.scroll-reveal.revealed .process-step,
-.scroll-reveal.revealed .card,
-.scroll-reveal.revealed .review-card--luxe {
-  opacity: 0;
-  animation: revealChild 0.6s ease-out forwards;
-}
+/* WhyUs — cascade */
+.whyUs__item { animation: fadeSlideUp 0.7s ease-out both; }
+.whyUs__item:nth-child(1) { animation-delay: 0.1s; }
+.whyUs__item:nth-child(2) { animation-delay: 0.3s; }
+.whyUs__item:nth-child(3) { animation-delay: 0.5s; }
 
-.scroll-reveal.revealed .whyUs__item:nth-child(1),
-.scroll-reveal.revealed .process-step:nth-child(1),
-.scroll-reveal.revealed .card:nth-child(1),
-.scroll-reveal.revealed .review-card--luxe:nth-child(1) { animation-delay: 0.1s; }
+/* Process steps — cascade */
+.process-step { animation: fadeSlideUp 0.7s ease-out both; }
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.25s; }
+.process-step:nth-child(3) { animation-delay: 0.4s; }
+.process-step:nth-child(4) { animation-delay: 0.55s; }
 
-.scroll-reveal.revealed .whyUs__item:nth-child(2),
-.scroll-reveal.revealed .process-step:nth-child(2),
-.scroll-reveal.revealed .card:nth-child(2),
-.scroll-reveal.revealed .review-card--luxe:nth-child(2) { animation-delay: 0.25s; }
+/* Menu cards — cascade */
+.home-menus .card { animation: fadeSlideUp 0.7s ease-out both; }
+.home-menus .card:nth-child(1) { animation-delay: 0.1s; }
+.home-menus .card:nth-child(2) { animation-delay: 0.3s; }
+.home-menus .card:nth-child(3) { animation-delay: 0.5s; }
 
-.scroll-reveal.revealed .whyUs__item:nth-child(3),
-.scroll-reveal.revealed .process-step:nth-child(3),
-.scroll-reveal.revealed .card:nth-child(3),
-.scroll-reveal.revealed .review-card--luxe:nth-child(3) { animation-delay: 0.4s; }
-
-.scroll-reveal.revealed .process-step:nth-child(4),
-.scroll-reveal.revealed .review-card--luxe:nth-child(4) { animation-delay: 0.55s; }
-
-.scroll-reveal.revealed .review-card--luxe:nth-child(5) { animation-delay: 0.7s; }
-.scroll-reveal.revealed .review-card--luxe:nth-child(6) { animation-delay: 0.85s; }
-
-@keyframes revealChild {
-  0%   { opacity: 0; transform: translateY(30px) scale(0.95); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* ── Section titles — animation douce ── */
-.scroll-reveal.revealed .section-label,
-.scroll-reveal.revealed .whyUs__kicker {
-  animation: labelSlideIn 0.7s ease-out 0.05s both;
-}
-.scroll-reveal.revealed .section-title,
-.scroll-reveal.revealed .whyUs__title {
-  animation: titleSlideIn 0.7s ease-out 0.15s both;
-}
-
-@keyframes labelSlideIn {
-  0%   { opacity: 0; transform: translateY(15px); letter-spacing: 0.5em; }
-  100% { opacity: 1; transform: translateY(0); letter-spacing: 0.2em; }
-}
-@keyframes titleSlideIn {
-  0%   { opacity: 0; transform: translateY(20px) scale(0.96); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
+/* Review cards — cascade */
+.home-reviews .review-card--luxe { animation: fadeSlideUp 0.6s ease-out both; }
+.home-reviews .review-card--luxe:nth-child(1) { animation-delay: 0.1s; }
+.home-reviews .review-card--luxe:nth-child(2) { animation-delay: 0.2s; }
+.home-reviews .review-card--luxe:nth-child(3) { animation-delay: 0.3s; }
+.home-reviews .review-card--luxe:nth-child(4) { animation-delay: 0.4s; }
+.home-reviews .review-card--luxe:nth-child(5) { animation-delay: 0.5s; }
+.home-reviews .review-card--luxe:nth-child(6) { animation-delay: 0.6s; }
 
 /* ── Cartes menu — hover amélioré ── */
 .home-menus .card {
