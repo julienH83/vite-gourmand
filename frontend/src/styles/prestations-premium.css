@@ -444,84 +444,100 @@
 }
 
 .pp-prest {
-  display: flex;
-  align-items: stretch;
   position: relative;
-  padding-bottom: 0;
-  border-radius: 12px;
+  min-height: 500px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(198,161,91,.08);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(198,161,91,.1);
+  cursor: default;
 }
 
-.pp-prest:hover {
-  border-color: rgba(198,161,91,.2);
-  box-shadow: 0 12px 40px rgba(0,0,0,.25);
-}
-
-/* Séparateur fin entre chaque bloc (sauf le dernier) */
 .pp-prest:not(:last-child) {
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .pp-prest:not(:last-child)::after {
   display: none;
 }
 
-/* Alternance droite/gauche */
-.pp-prest--flip {
-  flex-direction: row-reverse;
+/* Alternance — pas de flex-direction, tout est overlay */
+.pp-prest--flip { flex-direction: unset; }
+
+.pp-prest:focus-visible { box-shadow: none; }
+
+/* ── Zone visuelle : image FULL COVER ── */
+.pp-prest__visual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    var(--pp-img, url('/images/chef.jpg')) center / cover no-repeat;
+  transition: transform 0.8s cubic-bezier(.16,1,.3,1), filter 0.6s ease;
+  z-index: 0;
 }
 
-/* Focus clavier — non applicable (supprimé avec l'interactivité) */
-.pp-prest:focus-visible {
-  box-shadow: none;
-}
-
-/* Barre de sélection (2px, bord gauche toujours) */
-.pp-prest::before {
+/* Overlay dégradé sombre sur l'image */
+.pp-prest__visual::after {
   content: '';
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 2px;
-  background: transparent;
-  transition: background 150ms ease-out;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15,17,21,.2) 0%,
+    rgba(15,17,21,.75) 45%,
+    rgba(15,17,21,.92) 70%,
+    rgba(15,17,21,.97) 100%
+  );
   z-index: 1;
 }
-
-.pp-prest--on::before {
-  background: var(--pp-gold);
-}
-
-/* ── Zone visuelle : photo nette + overlay très léger ── */
-.pp-prest__visual {
-  width: 60%;
-  flex-shrink: 0;
-  min-height: 520px;
-  background:
-    /* voile sombre minimal — laisse la photo lisible */
-    linear-gradient(rgba(0, 0, 0, .18), rgba(0, 0, 0, .18)),
-    var(--pp-img, url('/images/chef.jpg')) center / cover no-repeat;
-  transition: filter 200ms ease-out, transform 400ms ease-out;
-  overflow: hidden;
+.pp-prest--flip .pp-prest__visual::after {
+  background: linear-gradient(
+    to left,
+    rgba(15,17,21,.2) 0%,
+    rgba(15,17,21,.75) 45%,
+    rgba(15,17,21,.92) 70%,
+    rgba(15,17,21,.97) 100%
+  );
 }
 
 .pp-prest:hover .pp-prest__visual {
-  filter: brightness(1.08);
-  transform: scale(1.03);
+  transform: scale(1.06);
+  filter: brightness(1.15) saturate(1.15);
 }
 
-.pp-prest--on .pp-prest__visual {
-  filter: brightness(1.10);
-}
-
-/* ── Corps textuel (40 % restant) ── */
+/* ── Corps textuel — overlay sur la droite ── */
 .pp-prest__body {
-  flex: 1;
-  padding: 72px clamp(36px, 5vw, 64px);
+  position: relative;
+  z-index: 2;
+  padding: 60px clamp(36px, 5vw, 64px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 45%;
+  min-height: 500px;
+}
+.pp-prest--flip .pp-prest__body {
+  margin-left: 0;
+  margin-right: 45%;
+}
+
+/* Ligne dorée décorative sur le côté */
+.pp-prest::before {
+  content: '';
+  position: absolute;
+  right: 0; top: 15%; bottom: 15%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--pp-gold), transparent);
+  opacity: 0;
+  z-index: 4;
+  transition: opacity 0.5s ease;
+}
+.pp-prest--flip::before {
+  right: auto; left: 0;
+}
+.pp-prest:hover::before {
+  opacity: 0.5;
 }
 
 /* Badge (ex : "Populaire") */
@@ -1131,8 +1147,8 @@
 /* ── 13. Responsive ───────────────────────────────────────── */
 @media (max-width: 1024px) {
   .pp-container { padding: 0 32px; }
-  .pp-prest__body { padding: 60px 48px; max-width: 100%; }
-  .pp-prest__visual { min-height: 420px; }
+  .pp-prest__body { padding: 48px 36px; margin-left: 35%; }
+  .pp-prest--flip .pp-prest__body { margin-left: 0; margin-right: 35%; }
   .pp-opts { padding: 32px; }
 }
 
@@ -1152,15 +1168,20 @@
   .pp-cta { padding: 80px 20px; }
   .pp-cta__actions { flex-direction: column; gap: 24px; }
 
-  /* Blocs prestations : empilés verticalement */
-  .pp-prest,
-  .pp-prest--flip {
-    flex-direction: column;
+  /* Blocs prestations : overlay centré en mobile */
+  .pp-prest { min-height: 400px; }
+  .pp-prest__body {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 36px 28px;
+    text-align: center;
+    align-items: center;
   }
-
-  .pp-prest:not(:last-child) {
-    margin-bottom: 80px;
+  .pp-prest__visual::after {
+    background: rgba(15,17,21,.75) !important;
   }
+  .pp-prest__rule { margin-left: auto; margin-right: auto; }
+  .pp-prest:not(:last-child) { margin-bottom: 32px; }
 
   .pp-prest:not(:last-child)::after {
     bottom: -40px;
