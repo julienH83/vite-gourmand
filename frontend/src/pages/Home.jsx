@@ -30,9 +30,12 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="hero hero--fullscreen" aria-label="Présentation">
+        <div className="hero__particles" aria-hidden="true">
+          {[...Array(20)].map((_, i) => <span key={i} className="hero__particle" />)}
+        </div>
         <div className="container">
           <span className="hero__kicker">Traiteur événementiel · Bordeaux</span>
-          <h1>Vite <span>&</span> Gourmand</h1>
+          <h1 className="hero__title-shimmer">Vite <span>&</span> Gourmand</h1>
           <p>
             Des menus raffinés, livrés chez vous pour tous vos événements :
             mariages, séminaires, anniversaires. De 6 à 500 convives.
