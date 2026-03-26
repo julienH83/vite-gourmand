@@ -7,7 +7,7 @@ export default function LegalPage() {
   const [page, setPage] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Contenu fallback si l’API n’a pas encore la page
+  // Contenu fallback si l'API n'a pas encore la page
   const fallbackPages = useMemo(() => {
     const today = new Date().toISOString();
     return {
@@ -53,7 +53,7 @@ Cookies strictement nécessaires uniquement (session, authentification). Aucun c
 CNIL : www.cnil.fr — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07`
       },
       "mentions_legales": {
-        title: ‘Mentions légales’,
+        title: 'Mentions légales',
         updated_at: today,
         content: `# Mentions légales
 
@@ -70,19 +70,19 @@ Tél. : 05 56 00 00 00 — Email : contact@vitegourmand.fr
 **Render Services, Inc.** — 525 Brannan Street, Suite 300, San Francisco, CA 94107, États-Unis — render.com
 
 ## 3. Activité
-Vite & Gourmand exerce une activité de traiteur événementiel (mariages, séminaires, anniversaires, cocktails) dans la région bordelaise, dans le respect des réglementations en matière d’hygiène et de sécurité alimentaire.
+Vite & Gourmand exerce une activité de traiteur événementiel (mariages, séminaires, anniversaires, cocktails) dans la région bordelaise, dans le respect des réglementations en matière d'hygiène et de sécurité alimentaire.
 
 ## 4. Propriété intellectuelle
-L’ensemble des éléments du site (textes, photographies, logos, code source, structure) est protégé par le Code de la propriété intellectuelle. Toute reproduction sans autorisation écrite préalable est interdite.
+L'ensemble des éléments du site (textes, photographies, logos, code source, structure) est protégé par le Code de la propriété intellectuelle. Toute reproduction sans autorisation écrite préalable est interdite.
 
 ## 5. Données personnelles
-Les données collectées sont traitées conformément au RGPD. Vous disposez de droits d’accès, rectification, effacement, limitation, portabilité et opposition. Contact : contact@vitegourmand.fr. Consultez notre Politique de confidentialité pour en savoir plus.
+Les données collectées sont traitées conformément au RGPD. Vous disposez de droits d'accès, rectification, effacement, limitation, portabilité et opposition. Contact : contact@vitegourmand.fr. Consultez notre Politique de confidentialité pour en savoir plus.
 
 ## 6. Cookies
 Cookies strictement nécessaires uniquement (session, authentification). Aucun cookie publicitaire ou de suivi.
 
 ## 7. Responsabilité
-Les informations publiées sont fournies à titre indicatif. Les photographies de menus peuvent varier selon les saisons. Vite & Gourmand décline toute responsabilité en cas d’interruption du site ou d’incompatibilité technique.
+Les informations publiées sont fournies à titre indicatif. Les photographies de menus peuvent varier selon les saisons. Vite & Gourmand décline toute responsabilité en cas d'interruption du site ou d'incompatibilité technique.
 
 ## 8. Droit applicable
 Droit français. Tribunaux compétents de Bordeaux en cas de litige.`
@@ -228,7 +228,7 @@ Droit français. Tribunaux compétents de Bordeaux en cas de litige.`
     return (
       <div className="container legal-luxe" style={{ maxWidth: 900 }}>
         <div className="legal-luxe__header">
-          <Link to="/" className="legal-luxe__back">← Retour à l’accueil</Link>
+          <Link to="/" className="legal-luxe__back">← Retour à l'accueil</Link>
           <h1 className="legal-luxe__title">Page non trouvée</h1>
           <div className="legal-luxe__meta">
             <span>Vite &amp; Gourmand</span>
@@ -241,7 +241,7 @@ Droit français. Tribunaux compétents de Bordeaux en cas de litige.`
 
         <article className="legal-luxe__card">
           <p className="legal-luxe__p">
-            Cette page n’existe pas ou son contenu n’est pas encore disponible.
+            Cette page n'existe pas ou son contenu n'est pas encore disponible.
           </p>
         </article>
       </div>
@@ -251,7 +251,7 @@ Droit français. Tribunaux compétents de Bordeaux en cas de litige.`
   return (
     <div className="container legal-luxe" style={{ maxWidth: 900 }}>
       <div className="legal-luxe__header">
-        <Link to="/" className="legal-luxe__back">← Retour à l’accueil</Link>
+        <Link to="/" className="legal-luxe__back">← Retour à l'accueil</Link>
 
         <h1 className="legal-luxe__title">{pageTitle}</h1>
 
