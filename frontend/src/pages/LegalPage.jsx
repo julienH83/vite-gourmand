@@ -16,64 +16,41 @@ export default function LegalPage() {
         updated_at: today,
         content: `# Politique de confidentialité
 
-## 1. Responsable du traitement
-**Vite & Gourmand** — Traiteur événementiel à Bordeaux.
-Adresse : 10 Place de la Bourse, 33000 Bordeaux
-Email : contact@vitegourmand.fr
+**Dernière mise à jour : mars 2026**
+
+La société Vite & Gourmand, en sa qualité de responsable de traitement, attache une importance particulière à la protection des données personnelles de ses clients et visiteurs. La présente politique vise à vous informer sur la manière dont nous recueillons et traitons vos données, conformément au Règlement (UE) 2016/679 (RGPD) et à la loi n° 78-17 du 6 janvier 1978 modifiée.
+
+## 1. Identité du responsable de traitement
+Vite & Gourmand — Traiteur événementiel
+Julie et José, co-gérants
+10 Place de la Bourse, 33000 Bordeaux
+Tél. : 05 56 00 00 00 — Email : contact@vitegourmand.fr
 
 ## 2. Données collectées
-Dans le cadre de l'utilisation de notre site et de nos services, nous collectons les données suivantes :
+Nous collectons uniquement les données nécessaires à la bonne exécution de nos prestations : nom, prénom, email, téléphone, adresse postale et mot de passe (chiffré) lors de la création de compte ; menu, nombre de convives, adresse et date de livraison lors d'une commande ; objet, email et contenu lors d'une prise de contact. Des données techniques (adresse IP, navigateur) sont collectées à des fins de sécurité.
 
-- **Données d'identification** : prénom, nom, adresse email, numéro de téléphone
-- **Données de livraison** : adresse de livraison
-- **Données de commandes** : détail des prestations, date de livraison, montants
-- **Données de connexion** : logs techniques (adresse IP, navigateur) à des fins de sécurité
+## 3. Pourquoi nous utilisons vos données
+- Gérer votre espace client et traiter vos commandes
+- Établir et suivre vos demandes de devis
+- Vous adresser les emails liés à vos commandes
+- Modérer et publier les avis déposés après prestation
+- Répondre à vos messages et assurer la sécurité du site
+- Respecter nos obligations comptables et fiscales
 
-## 3. Finalités du traitement
-Vos données sont utilisées pour :
-
-- La création et la gestion de votre compte client
-- Le traitement de vos commandes et devis
-- La communication relative à vos commandes (confirmation, suivi)
-- La facturation et les obligations comptables légales
-- La sécurité et la prévention des fraudes
-
-## 4. Base légale
-- **Exécution du contrat** : traitement des commandes et des devis
-- **Obligation légale** : conservation des données de facturation (art. L.123-22 Code de commerce)
-- **Intérêt légitime** : sécurité du site et prévention des fraudes
-- **Consentement** : lors de l'inscription (case RGPD cochée)
+## 4. Base juridique
+Exécution du contrat (commandes, devis), consentement (inscription), obligation légale (données comptables — 10 ans), intérêt légitime (sécurité, prévention de la fraude).
 
 ## 5. Durée de conservation
-- Données du compte actif : pendant toute la durée de la relation contractuelle
-- Données de facturation : 10 ans (obligation légale)
-- Données d'un compte supprimé : anonymisation immédiate des données personnelles ; les données de commandes sont conservées sous forme anonymisée pour nos obligations légales
+Compte actif : durée de la relation. Compte inactif 3 ans : vérification auprès du client. Facturation : 10 ans. Compte supprimé : anonymisation immédiate. Messages de contact : 2 ans.
 
-## 6. Vos droits (RGPD)
-Conformément au Règlement (UE) 2016/679, vous disposez des droits suivants :
+## 6. Vos droits
+Accès, rectification, effacement, limitation, portabilité, opposition, retrait du consentement — exercez-les depuis votre espace client ou par email à contact@vitegourmand.fr (réponse sous 30 jours).
 
-- **Droit d'accès** (art. 15) : obtenir une copie de vos données
-- **Droit de rectification** (art. 16) : corriger vos données inexactes
-- **Droit à l'effacement** (art. 17) : demander la suppression de vos données
-- **Droit à la portabilité** (art. 20) : exporter vos données dans un format lisible
-- **Droit d'opposition** (art. 21) : vous opposer à certains traitements
-- **Droit à la limitation** (art. 18) : suspendre temporairement un traitement
+## 7. Cookies
+Cookies strictement nécessaires uniquement (session, authentification). Aucun cookie publicitaire ou de suivi.
 
-Ces droits sont directement accessibles depuis votre espace client (Mon profil > Mes droits RGPD).
-Pour toute demande : **contact@vitegourmand.fr**
-
-## 7. Destinataires des données
-Vos données sont accessibles uniquement au personnel habilité de Vite & Gourmand et à nos sous-traitants techniques (hébergeur, service d'envoi d'emails), liés par des engagements de confidentialité conformes au RGPD.
-Aucune donnée n'est cédée à des tiers à des fins commerciales.
-
-## 8. Sécurité
-Nous mettons en œuvre des mesures techniques et organisationnelles adaptées pour protéger vos données contre tout accès non autorisé, toute perte ou altération (chiffrement, hachage des mots de passe, HTTPS, contrôle des accès).
-
-## 9. Cookies
-Notre site utilise uniquement des cookies strictement nécessaires à son fonctionnement (session, authentification JWT). Aucun cookie publicitaire ou de tracking n'est déposé.
-
-## 10. Réclamation
-Si vous estimez que le traitement de vos données n'est pas conforme à la réglementation, vous pouvez introduire une réclamation auprès de la **CNIL** : www.cnil.fr`
+## 8. Réclamation
+CNIL : www.cnil.fr — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07`
       },
       "mentions_legales": {
         title: 'Mentions légales',

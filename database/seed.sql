@@ -48,259 +48,214 @@ INSERT INTO legal_pages (type, title, content) VALUES
 ('mentions_legales', 'Mentions légales', 'Mentions légales - Contenu de démonstration.'),
 ('cgv', 'Conditions Générales de Vente', '# Conditions Générales de Vente
 
-## 1. Objet
-Les présentes Conditions Générales de Vente (ci-après « CGV ») régissent l''ensemble des relations commerciales entre **Vite & Gourmand**, traiteur événementiel, et toute personne physique ou morale (ci-après « le Client ») passant commande ou demandant un devis via le site vitegourmand.fr.
+**En vigueur au 1er janvier 2026**
 
-Toute commande ou acceptation de devis implique l''adhésion pleine et entière du Client aux présentes CGV.
+Les présentes Conditions Générales de Vente s''appliquent à l''ensemble des prestations conclues entre la société Vite & Gourmand, traiteur événementiel dont le siège social est situé au 10 Place de la Bourse, 33000 Bordeaux, et ses clients. Toute commande passée sur le site vitegourmand.fr ou suite à l''acceptation d''un devis emporte acceptation sans réserve des présentes conditions.
 
-## 2. Prestations proposées
-Vite & Gourmand propose des services de traiteur pour événements privés et professionnels :
+## Article 1 — Prestations
 
-- Mariages, anniversaires, baptêmes
-- Séminaires et réunions d''entreprise
-- Cocktails, galas et réceptions
-- Tout autre événement sur mesure
+Vite & Gourmand assure des prestations de traiteur pour événements privés et professionnels : mariages, anniversaires, baptêmes, séminaires, cocktails, galas et tout événement sur mesure. Nos prestations couvrent la préparation culinaire, la livraison, la mise en place sur le lieu de réception et, le cas échéant, la mise à disposition de matériel.
 
-Les prestations comprennent la préparation des repas, la livraison, la mise en place et la récupération du matériel, selon les modalités convenues.
+## Article 2 — Commandes et devis
 
-## 3. Commandes et devis
+### 2.1 Commande en ligne
+Le Client sélectionne un menu, indique le nombre de convives (de 6 à 500 personnes), la date, l''adresse et le créneau de livraison souhaité. La commande ne devient ferme et définitive qu''après versement de l''acompte prévu à l''article 4.
 
-### 3.1. Commande directe
-Le Client peut passer commande directement en ligne en sélectionnant un menu, un nombre de convives (10 à 500 personnes), une date, un lieu et un créneau de livraison. La commande est validée après versement de l''acompte.
+### 2.2 Demande de devis
+Pour les prestations sur mesure, le Client remplit une demande de devis en ligne. Le devis est gratuit et transmis par email dans les meilleurs délais. Il reste valable 14 jours calendaires à compter de son envoi. L''acceptation du devis par le Client, accompagnée du versement de l''acompte, vaut engagement ferme des deux parties.
 
-### 3.2. Demande de devis
-Pour les événements sur mesure, le Client peut effectuer une demande de devis en ligne en précisant le type d''événement, le nombre de convives, la date, le lieu, les préférences alimentaires et les options souhaitées.
+## Article 3 — Tarifs
 
-Le devis est établi gratuitement et transmis par email avec le détail des prestations, les tarifs et les conditions. Le devis est valable **14 jours** à compter de son envoi. Passé ce délai, il est automatiquement expiré.
+Tous les prix affichés sur le site sont exprimés en euros, toutes taxes comprises (TTC). Ils comprennent la préparation des repas et la livraison dans Bordeaux intra-muros.
 
-L''acceptation du devis par le Client vaut engagement ferme, sous réserve du versement de l''acompte.
+- Livraison hors Bordeaux : forfait de 5 € auquel s''ajoute 0,59 € par kilomètre supplémentaire
+- Remise volume : une réduction de 10 % s''applique automatiquement dès lors que le nombre de convives dépasse de 5 personnes le minimum indiqué pour le menu commandé
 
-## 4. Tarifs
-Les prix sont exprimés en euros TTC. Ils comprennent la préparation, la livraison dans Bordeaux et la mise en place.
+Les tarifs en vigueur sont ceux affichés au jour de la validation de la commande ou de l''acceptation du devis.
 
-- **Livraison dans Bordeaux** : gratuite
-- **Livraison hors Bordeaux (Gironde et Sud-Ouest)** : supplément calculé en fonction de la distance (5 € + 0,59 € par kilomètre)
-- **Remise groupe** : une réduction de 10 % est automatiquement appliquée à partir d''un certain nombre de convives
+## Article 4 — Acompte et règlement
 
-Les tarifs peuvent être modifiés à tout moment. Les prix applicables sont ceux en vigueur au moment de la validation de la commande ou de l''acceptation du devis.
+Un acompte de 30 % du montant total est requis pour confirmer la commande. Cet acompte est payable par virement bancaire ; les coordonnées sont communiquées par email. Le solde de 70 % est exigible au plus tard le jour de la prestation, sauf mention contraire portée au devis.
 
-## 5. Acompte et paiement
+Aucune commande n''est considérée comme confirmée avant la réception effective de l''acompte.
 
-### 5.1. Acompte
-Un acompte de **30 % du montant total** est exigé pour confirmer toute commande ou devis accepté. Cet acompte est à régler par **virement bancaire** aux coordonnées communiquées par email.
+## Article 5 — Annulation
 
-La commande n''est considérée comme confirmée qu''à réception effective de l''acompte sur notre compte bancaire.
+### 5.1 Par le Client
+- Avant le versement de l''acompte : annulation libre et sans frais
+- Après versement de l''acompte (commande confirmée) : l''acompte de 30 % reste acquis à Vite & Gourmand à titre d''indemnité forfaitaire
+- Après acceptation de la commande par notre équipe : le montant total de la prestation reste dû ; aucune annulation n''est possible
 
-### 5.2. Solde
-Le solde restant (70 %) est dû au plus tard le jour de la prestation, sauf accord contraire mentionné dans le devis.
+### 5.2 Par Vite & Gourmand
+En cas de force majeure rendant la prestation impossible (conditions climatiques exceptionnelles, mesure administrative, pandémie), Vite & Gourmand procède au remboursement intégral des sommes versées, sans qu''aucune indemnité complémentaire ne puisse être réclamée.
 
-### 5.3. Moyens de paiement
-Le paiement s''effectue exclusivement par **virement bancaire**. Les coordonnées bancaires (IBAN, BIC) sont communiquées par email après validation de la commande ou acceptation du devis.
+## Article 6 — Livraison
 
-## 6. Annulation et remboursement
+La livraison a lieu à l''adresse, à la date et dans le créneau horaire convenus lors de la commande. Le Client, ou son représentant désigné, doit être présent pour réceptionner la livraison. Toute anomalie constatée à la réception doit être signalée par email à contact@vitegourmand.fr dans les 24 heures suivant la livraison.
 
-### 6.1. Annulation par le Client
-Le Client peut annuler sa commande dans les conditions suivantes :
+## Article 7 — Matériel mis à disposition
 
-- **Avant versement de l''acompte** (statut « Acompte en attente ») : annulation gratuite, sans frais
-- **Après versement de l''acompte** (statut « Confirmée ») : l''acompte de 30 % est conservé à titre d''indemnité forfaitaire
-- **Après acceptation par notre équipe** (statut « Acceptée ») : aucune annulation possible, le montant total reste dû
+Lorsque la prestation inclut du matériel (vaisselle, équipements de service), celui-ci est confié au Client sous sa responsabilité. Le Client en assure la garde et s''engage à le restituer en bon état.
 
-### 6.2. Annulation par Vite & Gourmand
-En cas de force majeure (intempéries exceptionnelles, pandémie, interdiction administrative) rendant la prestation impossible, Vite & Gourmand procédera au remboursement intégral des sommes versées, sans indemnité supplémentaire.
+Dès que la commande passe au statut « Attente de retour de matériel », un email de notification est adressé au Client. Le matériel doit être restitué sous 10 jours ouvrés. Pour organiser le retour, le Client prend contact avec nous par téléphone ou par email.
 
-## 7. Livraison et déroulement de la prestation
+**À défaut de restitution dans ce délai, une indemnité forfaitaire de 600 € sera facturée au Client.** Tout matériel rendu cassé, détérioré ou incomplet pourra donner lieu à une facturation complémentaire.
 
-### 7.1. Livraison
-La livraison est effectuée à l''adresse indiquée par le Client lors de la commande, à la date et au créneau horaire convenus. Le Client s''engage à être présent ou à désigner un représentant pour réceptionner la livraison.
+## Article 8 — Allergènes et régimes alimentaires
 
-### 7.2. Matériel
-Certaines prestations incluent la mise à disposition de matériel (vaisselle, équipements de service). Le Client s''engage à restituer le matériel dans l''état dans lequel il lui a été remis.
+Nos menus sont disponibles en plusieurs déclinaisons : classique, végétarien, végan, et peuvent être adaptés selon vos besoins. Il appartient au Client de signaler toute allergie ou intolérance alimentaire au moment de la commande ou de la demande de devis.
 
-Dès que la commande passe au statut « Attente de retour de matériel », le Client est notifié par email. **Le matériel doit être restitué dans un délai de 10 jours ouvrés.** Pour organiser la restitution, le Client doit prendre contact avec Vite & Gourmand par email ou par téléphone.
+Malgré le soin apporté à nos préparations, la présence de traces d''allergènes ne peut être totalement exclue. La responsabilité de Vite & Gourmand ne saurait être engagée pour des allergies non portées à notre connaissance.
 
-**En cas de non-restitution du matériel dans le délai de 10 jours ouvrés, des frais forfaitaires de 600 € seront facturés au Client.** Tout matériel restitué cassé, détérioré ou incomplet pourra également faire l''objet d''une facturation complémentaire.
+## Article 9 — Avis clients
 
-### 7.3. Vérification
-Le Client est invité à vérifier la conformité de la livraison dès réception et à signaler toute anomalie dans les 24 heures suivant la prestation à contact@vitegourmand.fr.
+À l''issue de la prestation (commande au statut « Terminée »), le Client peut déposer un avis comportant une note de 1 à 5 et un commentaire. Chaque avis est soumis à validation par notre équipe avant publication sur le site. Nous nous réservons le droit de refuser tout avis à caractère injurieux, diffamatoire ou sans lien avec la prestation réalisée.
 
-## 8. Allergies et restrictions alimentaires
-Vite & Gourmand propose des menus adaptés (végétarien, végan, sans gluten, halal). Le Client est tenu de signaler toute allergie ou restriction alimentaire lors de la commande ou de la demande de devis.
+## Article 10 — Responsabilité
 
-Malgré toutes les précautions prises, Vite & Gourmand ne peut garantir l''absence totale de traces d''allergènes dans ses préparations. La responsabilité de Vite & Gourmand ne saurait être engagée en cas de réaction allergique non signalée préalablement.
+Vite & Gourmand s''engage à réaliser ses prestations dans le respect des normes d''hygiène et de sécurité alimentaire en vigueur. Notre responsabilité contractuelle est limitée au montant de la commande concernée. Elle ne saurait être engagée au titre de dommages indirects tels que perte de chance, préjudice d''image ou trouble de jouissance.
 
-## 9. Avis clients
-Après réalisation de la prestation (commande au statut « Terminée »), le Client peut laisser un avis (note de 1 à 5 et commentaire facultatif). Les avis sont soumis à modération par notre équipe avant publication sur le site.
+## Article 11 — Propriété intellectuelle
 
-Vite & Gourmand se réserve le droit de refuser la publication d''avis injurieux, diffamatoires ou sans rapport avec la prestation.
+L''ensemble des éléments du site vitegourmand.fr — textes, photographies, illustrations, logos, charte graphique — est la propriété de Vite & Gourmand. Toute reproduction, même partielle, est soumise à autorisation préalable écrite.
 
-## 10. Responsabilité
-Vite & Gourmand s''engage à exécuter les prestations avec le plus grand soin et dans le respect des normes d''hygiène et de sécurité alimentaire.
+## Article 12 — Données personnelles
 
-La responsabilité de Vite & Gourmand est limitée au montant de la commande concernée. En aucun cas, Vite & Gourmand ne pourra être tenu responsable de dommages indirects (perte de chance, préjudice moral, trouble de jouissance).
+Les informations recueillies lors des commandes et demandes de devis font l''objet d''un traitement informatique dans le respect du RGPD. Notre Politique de confidentialité, consultable sur le site, détaille les données collectées, leurs finalités, leur durée de conservation ainsi que les droits dont vous disposez.
 
-## 11. Propriété intellectuelle
-L''ensemble des contenus du site vitegourmand.fr (textes, photographies, logos, charte graphique) est la propriété exclusive de Vite & Gourmand. Toute reproduction ou utilisation sans autorisation écrite est interdite.
+## Article 13 — Droit applicable — Litiges
 
-## 12. Protection des données personnelles
-Les données personnelles collectées dans le cadre des commandes et devis sont traitées conformément à notre Politique de confidentialité, accessible sur le site. Le Client dispose de droits d''accès, de rectification et de suppression de ses données conformément au RGPD.
+Les présentes CGV sont régies par le droit français. En cas de différend, les parties rechercheront en priorité un règlement amiable. À défaut d''accord, le litige sera soumis aux juridictions compétentes de Bordeaux.
 
-## 13. Droit applicable et litiges
-Les présentes CGV sont soumises au droit français.
+## Article 14 — Contact
 
-En cas de litige relatif à l''exécution des présentes, les parties s''efforceront de trouver une solution amiable. À défaut, le litige sera porté devant les tribunaux compétents de Bordeaux (Gironde), sauf disposition légale impérative contraire.
-
-## 14. Contact
-Pour toute question relative aux présentes CGV :
-
-- **Email** : contact@vitegourmand.fr
-- **Téléphone** : 05 56 00 00 00
-- **Adresse** : 10 Place de la Bourse, 33000 Bordeaux
-- **Horaires** : Lundi au vendredi, 9h - 18h'),
+Vite & Gourmand
+10 Place de la Bourse, 33000 Bordeaux
+Tél. : 05 56 00 00 00
+Email : contact@vitegourmand.fr
+Horaires : du lundi au vendredi, 9h – 18h'),
 ('confidentialite', 'Politique de confidentialité', '# Politique de confidentialité
 
 **Dernière mise à jour : mars 2026**
 
-Vite & Gourmand s''engage à protéger la vie privée de ses utilisateurs. La présente politique de confidentialité décrit les données personnelles que nous collectons, comment nous les utilisons et les droits dont vous disposez, conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la loi Informatique et Libertés.
+La société Vite & Gourmand, en sa qualité de responsable de traitement, attache une importance particulière à la protection des données personnelles de ses clients et visiteurs. La présente politique vise à vous informer sur la manière dont nous recueillons et traitons vos données, conformément au Règlement (UE) 2016/679 (RGPD) et à la loi n° 78-17 du 6 janvier 1978 modifiée.
 
-## 1. Responsable du traitement
-**Vite & Gourmand** — Traiteur événementiel
-Adresse : 10 Place de la Bourse, 33000 Bordeaux
+## 1. Identité du responsable de traitement
+
+Vite & Gourmand — Traiteur événementiel
+Julie et José, co-gérants
+10 Place de la Bourse, 33000 Bordeaux
+Tél. : 05 56 00 00 00
 Email : contact@vitegourmand.fr
-Téléphone : 05 56 00 00 00
+SIRET : 123 456 789 00012
 
-## 2. Données personnelles collectées
+## 2. Données collectées et contexte de collecte
 
-### 2.1. Lors de la création de compte
-- Prénom et nom
-- Adresse email
-- Numéro de téléphone
-- Adresse postale
-- Mot de passe (stocké sous forme chiffrée, jamais en clair)
-- Consentement RGPD (date et heure de l''acceptation)
+Nous collectons uniquement les données strictement nécessaires à la bonne exécution de nos prestations de traiteur :
 
-### 2.2. Lors d''une commande
-- Menu sélectionné et nombre de convives
-- Adresse et ville de livraison
-- Date et créneau de livraison
-- Distance de livraison (calculée automatiquement)
-- Montant de la commande et de l''acompte
+### Création de votre compte client
+Nom, prénom, adresse email, téléphone, adresse postale et mot de passe (ce dernier est chiffré et n''est jamais stocké ni accessible en clair).
 
-### 2.3. Lors d''une demande de devis
-- Type d''événement (mariage, anniversaire, séminaire, cocktail, gala, autre)
-- Nombre de convives
-- Date, heure et lieu de l''événement
-- Préférences alimentaires et allergies éventuelles
-- Message complémentaire
-- Menus et options sélectionnés
+### Passation d''une commande
+Menu choisi, nombre de convives, adresse et date de livraison, créneau horaire souhaité, montant facturé.
 
-### 2.4. Lors de l''utilisation du formulaire de contact
-- Objet du message
-- Adresse email
-- Contenu du message
+### Demande de devis ou prise de contact
+Objet de la demande, adresse email de réponse et contenu du message.
 
-### 2.5. Données techniques
-- Adresse IP et informations de connexion (à des fins de sécurité uniquement)
-- Jetons d''authentification (JWT) stockés côté navigateur pour maintenir votre session
+### Navigation sur le site
+Données techniques de connexion (adresse IP, type de navigateur) collectées à des fins de sécurité et de bon fonctionnement du service.
 
-## 3. Finalités du traitement
-Vos données personnelles sont utilisées pour les finalités suivantes :
+## 3. Pourquoi nous utilisons vos données
 
-- **Gestion de votre compte** : création, authentification, modification et suppression de votre espace client
-- **Traitement des commandes** : prise en charge, suivi, livraison, facturation
-- **Traitement des devis** : établissement, envoi, suivi, relance en cas d''expiration
-- **Communication transactionnelle** : emails de confirmation, de suivi de commande, d''instructions de paiement, de rappel
-- **Gestion des avis** : modération et publication des avis clients après prestation
-- **Réponse à vos demandes** : traitement des messages envoyés via le formulaire de contact
-- **Sécurité** : prévention des accès non autorisés, détection des fraudes
-- **Obligations légales** : conservation des données de facturation conformément au Code de commerce
+- Créer et gérer votre espace client
+- Traiter vos commandes et assurer leur suivi jusqu''à la livraison
+- Établir et suivre vos demandes de devis
+- Vous adresser les emails liés à vos commandes (confirmation, suivi, facturation)
+- Modérer et publier les avis déposés après une prestation
+- Répondre à vos messages via le formulaire de contact
+- Assurer la sécurité de notre plateforme
+- Respecter nos obligations comptables et fiscales
 
-## 4. Base légale du traitement
-Chaque traitement repose sur une base légale spécifique :
+## 4. Sur quelle base juridique ?
 
-- **Exécution du contrat** (art. 6.1.b RGPD) : traitement des commandes, devis, livraisons, gestion du compte client
-- **Consentement** (art. 6.1.a RGPD) : collecte des données lors de l''inscription (case RGPD cochée obligatoirement)
-- **Obligation légale** (art. 6.1.c RGPD) : conservation des données de facturation pendant 10 ans (art. L.123-22 du Code de commerce)
-- **Intérêt légitime** (art. 6.1.f RGPD) : sécurité du site, prévention des fraudes, amélioration du service
+- **Exécution du contrat** (art. 6.1.b RGPD) : gestion des commandes, devis et livraisons
+- **Consentement** (art. 6.1.a RGPD) : acceptation lors de la création de votre compte
+- **Obligation légale** (art. 6.1.c RGPD) : conservation des pièces comptables pendant 10 ans (art. L.123-22 du Code de commerce)
+- **Intérêt légitime** (art. 6.1.f RGPD) : sécurité du site et prévention de la fraude
 
-## 5. Durée de conservation des données
+## 5. Combien de temps conservons-nous vos données ?
 
-- **Compte client actif** : vos données sont conservées pendant toute la durée de votre relation avec Vite & Gourmand
-- **Compte inactif** : si aucune activité n''est constatée pendant 3 ans, nous vous contactons pour savoir si vous souhaitez conserver votre compte
-- **Données de facturation** : conservées 10 ans conformément aux obligations comptables légales
-- **Compte supprimé** : vos données personnelles sont anonymisées immédiatement. Les données de commandes sont conservées sous forme anonymisée pour nos obligations légales
-- **Formulaire de contact** : les messages sont conservés 2 ans à compter de la réception
-- **Données techniques (logs)** : conservées 12 mois maximum
+- **Compte actif** : pendant toute la durée de la relation commerciale
+- **Compte inactif depuis 3 ans** : nous vous contactons pour confirmer votre souhait de le conserver
+- **Données de facturation** : 10 ans (obligation légale)
+- **Compte supprimé** : anonymisation immédiate ; seules les données comptables sont conservées sous forme anonyme
+- **Messages de contact** : 2 ans
+- **Journaux techniques** : 12 mois
 
-## 6. Destinataires des données
-Vos données sont accessibles uniquement :
+## 6. Qui a accès à vos données ?
 
-- Au personnel habilité de Vite & Gourmand (employés et administrateurs)
-- À nos sous-traitants techniques, strictement nécessaires au fonctionnement du service :
-  - **Hébergeur** : pour le stockage sécurisé des données
-  - **Service d''envoi d''emails** : pour les communications transactionnelles
+Seuls les membres habilités de l''équipe Vite & Gourmand (employés, administrateurs) accèdent à vos données, dans la limite de ce qui est nécessaire à leurs fonctions.
 
-Chaque sous-traitant est lié par un contrat conforme à l''article 28 du RGPD.
+Nous faisons appel à des prestataires techniques pour l''hébergement du site et l''envoi des emails transactionnels. Chacun d''eux est lié par un contrat conforme à l''article 28 du RGPD.
 
-**Aucune donnée n''est cédée, vendue ou louée à des tiers à des fins commerciales ou publicitaires.**
+Vos données ne sont ni vendues, ni louées, ni cédées à des tiers à des fins publicitaires ou commerciales.
 
-## 7. Transferts de données hors UE
-En principe, vos données sont hébergées et traitées au sein de l''Union européenne. Si un transfert hors UE devait être nécessaire, il serait encadré par les garanties prévues par le RGPD (clauses contractuelles types ou décision d''adéquation).
+## 7. Transferts hors Union européenne
 
-## 8. Sécurité des données
-Nous mettons en oeuvre des mesures techniques et organisationnelles adaptées :
+Vos données sont hébergées et traitées au sein de l''Union européenne. En cas de transfert vers un pays tiers, celui-ci sera encadré par les garanties prévues par le RGPD (clauses contractuelles types, décision d''adéquation).
 
-- **Chiffrement des mots de passe** : hachage bcrypt (jamais stockés en clair)
-- **Authentification sécurisée** : jetons JWT avec expiration courte (15 minutes) et renouvellement automatique
-- **Mot de passe robuste obligatoire** : minimum 10 caractères, majuscule, minuscule, chiffre et caractère spécial
-- **Contrôle des accès** : système de rôles (client, employé, administrateur) limitant l''accès selon les fonctions
-- **Communication chiffrée** : HTTPS sur l''ensemble du site
-- **Journalisation** : logs de sécurité pour détecter les accès anormaux
+## 8. Comment protégeons-nous vos données ?
 
-## 9. Cookies et technologies similaires
-Notre site utilise uniquement des **cookies strictement nécessaires** à son fonctionnement :
+Nous mettons en place des mesures de sécurité adaptées à la sensibilité des données traitées :
 
-- **Jetons d''authentification (JWT)** : maintien de votre session de connexion
-- **Préférences de session** : mémorisation de votre progression dans un formulaire
+- Mots de passe chiffrés (hachage bcrypt)
+- Politique de mot de passe robuste (10 caractères minimum, majuscule, minuscule, chiffre, caractère spécial)
+- Authentification par jetons à durée de vie limitée
+- Gestion des droits d''accès par rôles (client, employé, administrateur)
+- Chiffrement des échanges (protocole HTTPS)
+- Journalisation des accès pour détecter toute anomalie
 
-**Aucun cookie publicitaire, de tracking ou de mesure d''audience n''est déposé.**
+## 9. Cookies
 
-Aucun consentement n''est requis pour ces cookies, conformément aux recommandations de la CNIL.
+Notre site n''utilise que des cookies strictement nécessaires à son fonctionnement : maintien de la session utilisateur et authentification. Aucun cookie publicitaire, analytique ou de suivi n''est déposé. Conformément aux recommandations de la CNIL, ces cookies exemptés de consentement ne font pas l''objet d''un bandeau d''acceptation.
 
-## 10. Vos droits (RGPD)
-Conformément aux articles 15 à 22 du Règlement (UE) 2016/679, vous disposez des droits suivants :
+## 10. Vos droits
 
-- **Droit d''accès** (art. 15) : obtenir confirmation que vos données sont traitées et en recevoir une copie
-- **Droit de rectification** (art. 16) : corriger vos données inexactes ou incomplètes
-- **Droit à l''effacement** (art. 17) : demander la suppression de vos données. Votre compte sera anonymisé
-- **Droit à la limitation** (art. 18) : suspendre temporairement un traitement
-- **Droit à la portabilité** (art. 20) : recevoir vos données dans un format structuré et lisible
-- **Droit d''opposition** (art. 21) : vous opposer à un traitement fondé sur l''intérêt légitime
-- **Droit de retirer votre consentement** : à tout moment, sans affecter la licéité du traitement antérieur
+En application des articles 15 à 22 du RGPD, vous pouvez à tout moment :
 
-### Comment exercer vos droits ?
-- **Depuis votre espace client** : modification de vos informations et demande de suppression
-- **Par email** : contact@vitegourmand.fr — réponse sous 30 jours maximum
-- **Par courrier** : Vite & Gourmand — 10 Place de la Bourse, 33000 Bordeaux
+- **Accéder** à vos données et en obtenir une copie (art. 15)
+- **Rectifier** des informations inexactes ou incomplètes (art. 16)
+- **Demander l''effacement** de vos données personnelles (art. 17)
+- **Limiter** temporairement un traitement (art. 18)
+- **Récupérer** vos données dans un format structuré — portabilité (art. 20)
+- **Vous opposer** à un traitement fondé sur notre intérêt légitime (art. 21)
+- **Retirer votre consentement** à tout moment, sans remettre en cause les traitements antérieurs
 
-## 11. Protection des mineurs
-Le site vitegourmand.fr n''est pas destiné aux mineurs de moins de 16 ans. Nous ne collectons pas sciemment de données de mineurs.
+Pour exercer ces droits :
+- Depuis votre espace client (rubrique Mon profil)
+- Par email à contact@vitegourmand.fr (réponse sous 30 jours)
+- Par courrier à Vite & Gourmand, 10 Place de la Bourse, 33000 Bordeaux
 
-## 12. Modification de la politique
-Nous nous réservons le droit de modifier cette politique à tout moment. La date de mise à jour est indiquée en haut de page. En cas de modification substantielle, les utilisateurs seront informés par email.
+## 11. Mineurs
 
-## 13. Réclamation auprès de la CNIL
-Si vous estimez que le traitement de vos données n''est pas conforme, vous pouvez introduire une réclamation auprès de la CNIL :
+Le site vitegourmand.fr s''adresse à un public majeur. Nous ne collectons pas sciemment de données concernant des mineurs de moins de 16 ans.
 
-- **En ligne** : www.cnil.fr
-- **Par courrier** : CNIL — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07
+## 12. Évolution de la présente politique
 
-## 14. Contact
-Pour toute question relative à la protection de vos données :
+Cette politique peut être mise à jour pour tenir compte d''évolutions légales ou techniques. La date de révision figure en haut de page. Toute modification substantielle vous sera notifiée par email.
 
-- **Email** : contact@vitegourmand.fr
-- **Téléphone** : 05 56 00 00 00
-- **Adresse** : 10 Place de la Bourse, 33000 Bordeaux');
+## 13. Réclamation
+
+Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL :
+- En ligne : www.cnil.fr
+- Par courrier : CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07
+
+## 14. Nous contacter
+
+Pour toute question relative à vos données personnelles :
+- Email : contact@vitegourmand.fr
+- Téléphone : 05 56 00 00 00
+- Adresse : 10 Place de la Bourse, 33000 Bordeaux');
 
 -- ============================================================
 -- DISHES (~40 plats de traiteur réalistes)
