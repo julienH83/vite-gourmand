@@ -69,27 +69,6 @@ export default function Prestations() {
     document.title = 'Prestations | Vite & Gourmand';
   }, []);
 
-  /* ── Scroll reveal : fade-up sur chaque bloc prestation ── */
-  useEffect(() => {
-    const container = listRef.current;
-    if (!container) return;
-    const items = container.querySelectorAll('.pp-prest');
-    if (!items.length) return;
-
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('pp-prest--visible');
-          observer.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.08, rootMargin: '0px 0px -48px 0px' }
-    );
-
-    items.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, [prestations]);
-
   useEffect(() => {
     api.get('/quote-options?limit=100')
       .then(r => r.json())
