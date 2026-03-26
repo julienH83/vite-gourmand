@@ -1,8 +1,44 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
 import Seo from '../components/Seo';
 import '../styles/prestations-premium.css';
+
+/* ─── Effet 3D tilt au survol ───────────────────────────────────────────────── */
+function useTilt3D() {
+  const ref = useRef(null);
+
+  const handleMove = useCallback((e) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    el.style.transform = `perspective(1000px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg) scale3d(1.02,1.02,1.02)`;
+    // Glow qui suit la souris
+    el.style.setProperty('--glow-x', `${e.clientX - rect.left}px`);
+    el.style.setProperty('--glow-y', `${e.clientY - rect.top}px`);
+  }, []);
+
+  const handleLeave = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transform = '';
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.addEventListener('mousemove', handleMove);
+    el.addEventListener('mouseleave', handleLeave);
+    return () => {
+      el.removeEventListener('mousemove', handleMove);
+      el.removeEventListener('mouseleave', handleLeave);
+    };
+  }, [handleMove, handleLeave]);
+
+  return ref;
+}
 
 /* ─── Métadonnées par prestation ───────────────────────────────────────────── */
 const PRESTATION_META = {
@@ -33,17 +69,16 @@ function matchMeta(map, label) {
 function PrestationCard({ opt, meta, index }) {
   const isEven = index % 2 === 0;
   const image  = meta?.image || '/images/chef.jpg';
+  const tiltRef = useTilt3D();
 
   return (
-    <article className={`pp-prest${isEven ? '' : ' pp-prest--flip'}`}>
-      {/* Zone visuelle : photo nette + overlay très léger */}
+    <article ref={tiltRef} className={`pp-prest pp-prest--3d${isEven ? '' : ' pp-prest--flip'}`}>
+      <div className="pp-prest__glow" aria-hidden="true" />
       <div
         className="pp-prest__visual"
         style={{ '--pp-img': `url('${image}')` }}
         role="presentation"
       />
-
-      {/* Corps textuel */}
       <div className="pp-prest__body">
         {meta?.badge && <span className="pp-prest__badge">{meta.badge}</span>}
         <h3 className="pp-prest__name">
