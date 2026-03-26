@@ -168,7 +168,7 @@ Les présentes mentions légales sont soumises au droit français. En cas de lit
       nodes.push(
         <ul key={`${keyBase}-ul`} className="legal-luxe__list">
           {listBuffer.map((item, idx) => (
-            <li key={`${keyBase}-li-${idx}`}>{item}</li>
+            <li key={`${keyBase}-li-${idx}`}>{renderInline(item)}</li>
           ))}
         </ul>
       );
@@ -212,11 +212,20 @@ Les présentes mentions légales sont soumises au droit français. En cas de lit
         return;
       }
 
-      nodes.push(<p key={i} className="legal-luxe__p">{line}</p>);
+      nodes.push(<p key={i} className="legal-luxe__p">{renderInline(line)}</p>);
     });
 
     flushList('end');
     return nodes;
+  };
+
+  // Gère le **gras** en milieu de texte
+  const renderInline = (text) => {
+    const parts = text.split(/\*\*(.+?)\*\*/g);
+    if (parts.length === 1) return text;
+    return parts.map((part, i) =>
+      i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+    );
   };
 
   if (loading) return <div className="loading">Chargement...</div>;
