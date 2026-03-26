@@ -63,7 +63,6 @@ export default function Home() {
               { title: 'Sur-mesure',        desc: 'Menus adaptés à vos besoins : standard, végétarien, vegan. De 6 à 500 convives, nous nous adaptons.' },
             ].map((item, i) => (
               <div className="whyUs__item" key={item.title}>
-                <span className="whyUs__num" aria-hidden="true">{'0' + (i + 1)}</span>
                 <h3 className="whyUs__itemTitle">{item.title}</h3>
                 <div className="whyUs__itemRule" aria-hidden="true" />
                 <p className="whyUs__itemDesc">{item.desc}</p>
