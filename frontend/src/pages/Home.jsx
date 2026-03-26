@@ -17,9 +17,14 @@ function useScrollReveal() {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
     );
     observer.observe(el);
+    // Fallback : si la section est déjà visible au chargement
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('revealed');
+    }
     return () => observer.disconnect();
   }, []);
   return ref;
