@@ -5,13 +5,20 @@ import Seo from '../components/Seo';
 import { resolveMenuImage, FALLBACK_IMG } from '../utils/menuImage';
 
 export default function Home() {
-  const [reviews, setReviews] = useState([]);
   const [menus, setMenus] = useState([]);
 
   useEffect(() => {
-    api.get('/reviews').then(r => r.json()).then(setReviews).catch(() => {});
     api.get('/menus').then(r => r.json()).then(data => setMenus(data.slice(0, 3))).catch(() => {});
   }, []);
+
+  const reviews = [
+    { id: 1, first_name: 'Sophie',   last_name: 'M', rating: 5, comment: 'Un service irréprochable pour notre mariage. Les plats étaient raffinés et nos 120 invités ont été enchantés. Merci à toute l\'équipe !', menu_title: 'Menu Prestige' },
+    { id: 2, first_name: 'Laurent',  last_name: 'D', rating: 5, comment: 'Nous avons fait appel à Vite & Gourmand pour un séminaire de 60 personnes. Ponctualité, qualité et présentation soignée. Je recommande vivement.', menu_title: 'Menu Classique' },
+    { id: 3, first_name: 'Camille',  last_name: 'R', rating: 4, comment: 'Très belle prestation pour l\'anniversaire de ma mère. Le menu végétarien était délicieux et le service de livraison parfait.', menu_title: 'Menu Végétarien' },
+    { id: 4, first_name: 'Thomas',   last_name: 'B', rating: 5, comment: 'Deuxième fois que nous commandons pour nos événements d\'entreprise. Toujours aussi qualitatif, avec des produits frais et locaux.', menu_title: 'Menu Terroir' },
+    { id: 5, first_name: 'Isabelle', last_name: 'P', rating: 4, comment: 'Le menu de Noël était magnifique, tant visuellement qu\'au niveau des saveurs. Nos convives en parlent encore !', menu_title: 'Menu de Noël' },
+    { id: 6, first_name: 'Marc',     last_name: 'L', rating: 5, comment: 'Rapport qualité-prix excellent. L\'équipe s\'est adaptée à nos contraintes de dernière minute avec beaucoup de professionnalisme.', menu_title: 'Menu Pâques' },
+  ];
 
   return (
     <>
