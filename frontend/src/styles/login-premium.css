@@ -172,6 +172,10 @@
 .lg-aside__block {
   display: flex;
   flex-direction: column;
+  padding: 36px 32px;
+  background: linear-gradient(165deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border: 1px solid rgba(198,161,91,.08);
+  border-radius: 12px;
 }
 
 .lg-aside__title {
@@ -268,9 +272,11 @@
 /* ── 6. Carte formulaire ──────────────────────────────────── */
 .lg-card {
   padding: 48px 44px;
-  background: rgba(255, 255, 255, .02);
-  border: 1px solid var(--lg-rule);
-  border-radius: 6px;
+  background: linear-gradient(165deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border: 1px solid rgba(198,161,91,.12);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.2);
 }
 
 .lg-card__title {
@@ -326,16 +332,21 @@
 
 .lg-field__input {
   width: 100%;
-  padding: 14px 16px;
-  background: rgba(255, 255, 255, .03);
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, .04);
   border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--lg-text);
   font-family: var(--lg-sans);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.5;
-  transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+  transition: border-color 200ms ease-out, box-shadow 200ms ease-out, background 200ms ease-out;
   box-sizing: border-box;
+}
+
+.lg-field__input:hover {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .18);
 }
 
 .lg-field__input::placeholder {
@@ -345,7 +356,8 @@
 .lg-field__input:focus {
   outline: none;
   border-color: rgba(198, 161, 91, .5);
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, .1);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, .1), 0 0 20px rgba(198,161,91,.05);
+  background: rgba(255, 255, 255, .06);
 }
 
 /* Bouton */
@@ -354,26 +366,31 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 10px 24px;
-  border: 1px solid var(--lg-gold);
-  color: var(--lg-gold);
-  background: transparent;
+  padding: 14px 24px;
+  border: none;
+  color: #0F1115;
+  background: linear-gradient(135deg, var(--lg-gold), #d4b56a);
   font-family: var(--lg-sans);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
   cursor: pointer;
-  border-radius: 999px;
-  min-height: 48px;
+  border-radius: 8px;
+  min-height: 52px;
   margin-top: 8px;
-  transition: background 150ms ease-out, color 150ms ease-out;
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  box-shadow: 0 4px 15px rgba(198,161,91,.25);
+  position: relative;
+  overflow: hidden;
 }
 
 .lg-btn:hover {
-  background: var(--lg-gold);
-  color: #0F1115;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(198,161,91,.35);
+  background: linear-gradient(135deg, #d4b56a, var(--lg-gold));
   text-decoration: none;
+  color: #0F1115;
 }
 
 .lg-btn:focus-visible {
@@ -387,8 +404,10 @@
 }
 
 .lg-btn:disabled:hover {
-  background: transparent;
-  color: var(--lg-gold);
+  background: linear-gradient(135deg, var(--lg-gold), #d4b56a);
+  color: #0F1115;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(198,161,91,.25);
 }
 
 /* Footer liens */
