@@ -88,6 +88,15 @@ class OrderService {
       // Emails et sync analytics hors transaction (best-effort)
       const orderUser = await this._orderRepo.findUserBasic(userId);
       try {
+        const dishes = await this._orderRepo.findMenuDishes(order.menu_id);
+        if (dishes.length > 0) {
+          await this._emailService.sendMenuSelectionEmail(orderUser, order, menu, dishes);
+        }
+      } catch (err) {
+        logger.error({ err }, 'Failed to send menu selection email');
+      }
+
+      try {
         await this._emailService.sendDepositRequestEmail(orderUser, order, menu);
       } catch (err) {
         logger.error({ err, code: err.code, response: err.response, command: err.command }, 'Failed to send order confirmation email');

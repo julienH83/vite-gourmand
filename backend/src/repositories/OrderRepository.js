@@ -142,6 +142,18 @@ class OrderRepository {
     return result.rows[0] || null;
   }
 
+  async findMenuDishes(menuId, client) {
+    const result = await this._db(client).query(
+      `SELECT d.name, d.type, d.description
+       FROM dishes d
+       JOIN menu_dishes md ON d.id = md.dish_id
+       WHERE md.menu_id = $1
+       ORDER BY CASE d.type WHEN 'entree' THEN 1 WHEN 'plat' THEN 2 WHEN 'dessert' THEN 3 END, d.name`,
+      [menuId]
+    );
+    return result.rows;
+  }
+
   async findMenu(menuId, client) {
     const result = await this._db(client).query(
       'SELECT * FROM menus WHERE id = $1',

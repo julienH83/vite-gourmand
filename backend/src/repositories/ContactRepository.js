@@ -9,8 +9,8 @@ class ContactRepository {
 
   async create(data, client) {
     const result = await this._db(client).query(
-      'INSERT INTO contact_messages (title, description, email, user_id) VALUES ($1, $2, $3, $4) RETURNING *',
-      [data.title, data.description, data.email, data.user_id || null]
+      'INSERT INTO contact_messages (title, description, email) VALUES ($1, $2, $3) RETURNING *',
+      [data.title, data.description, data.email]
     );
     return result.rows[0];
   }
@@ -18,11 +18,9 @@ class ContactRepository {
   async getAll(client) {
     const result = await this._db(client).query(`
       SELECT cm.*,
-        u.first_name AS user_first_name, u.last_name AS user_last_name,
         rb.first_name AS read_by_first_name, rb.last_name AS read_by_last_name,
         (SELECT COUNT(*) FROM contact_replies cr WHERE cr.message_id = cm.id) AS reply_count
       FROM contact_messages cm
-      LEFT JOIN users u ON cm.user_id = u.id
       LEFT JOIN users rb ON cm.read_by = rb.id
       ORDER BY cm.created_at DESC
     `);
@@ -32,10 +30,8 @@ class ContactRepository {
   async getById(id, client) {
     const msgResult = await this._db(client).query(`
       SELECT cm.*,
-        u.first_name AS user_first_name, u.last_name AS user_last_name,
         rb.first_name AS read_by_first_name, rb.last_name AS read_by_last_name
       FROM contact_messages cm
-      LEFT JOIN users u ON cm.user_id = u.id
       LEFT JOIN users rb ON cm.read_by = rb.id
       WHERE cm.id = $1
     `, [id]);
@@ -50,17 +46,6 @@ class ContactRepository {
     `, [id]);
 
     return { ...msgResult.rows[0], replies: repliesResult.rows };
-  }
-
-  async getByUserId(userId, client) {
-    const result = await this._db(client).query(`
-      SELECT cm.*,
-        (SELECT COUNT(*) FROM contact_replies cr WHERE cr.message_id = cm.id) AS reply_count
-      FROM contact_messages cm
-      WHERE cm.user_id = $1
-      ORDER BY cm.created_at DESC
-    `, [userId]);
-    return result.rows;
   }
 
   async markAsRead(id, userId, client) {

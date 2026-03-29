@@ -12,11 +12,8 @@ const replyValidation = [
 module.exports = function createContactRoutes(contactController) {
   const router = express.Router();
 
-  // Public (avec user_id si connecté)
+  // Public
   router.post('/', optionalAuth, contactValidation, contactController.create);
-
-  // Client : mes messages
-  router.get('/mine', authenticate, contactController.getMyMessages);
 
   // Staff : liste tous les messages
   router.get('/', authenticate, authorize('employee', 'admin'), contactController.list);

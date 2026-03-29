@@ -4,7 +4,6 @@ class ContactController {
     this.create = this.create.bind(this);
     this.list = this.list.bind(this);
     this.getById = this.getById.bind(this);
-    this.getMyMessages = this.getMyMessages.bind(this);
     this.markAsRead = this.markAsRead.bind(this);
     this.reply = this.reply.bind(this);
     this.delete = this.delete.bind(this);
@@ -13,8 +12,7 @@ class ContactController {
   async create(req, res, next) {
     try {
       const { title, description, email } = req.body;
-      const user_id = req.user ? req.user.id : null;
-      const result = await this._contactService.create({ title, description, email, user_id });
+      const result = await this._contactService.create({ title, description, email });
       res.status(201).json(result);
     } catch (err) {
       next(err);
@@ -34,15 +32,6 @@ class ContactController {
     try {
       const message = await this._contactService.getById(req.params.id);
       res.json(message);
-    } catch (err) {
-      next(err);
-    }
-  }
-
-  async getMyMessages(req, res, next) {
-    try {
-      const messages = await this._contactService.getByUserId(req.user.id);
-      res.json(messages);
     } catch (err) {
       next(err);
     }

@@ -387,7 +387,10 @@ INSERT INTO dishes (id, name, description, type, allergens) VALUES
 ('b0000000-0000-0000-0000-000000000309', 'Sorbet artisanal trio de saveurs',      'Trio de sorbets : mangue, framboise et citron vert. 100% vegan.',                    'dessert', ARRAY[]::TEXT[]),
 ('b0000000-0000-0000-0000-000000000310', 'Charlotte aux fraises',                 'Charlotte aux fraises fraîches, biscuits cuillère et crème diplomate.',              'dessert', ARRAY['gluten','oeufs','lait']),
 ('b0000000-0000-0000-0000-000000000311', 'Carpaccio d''ananas & menthe fraîche',   'Fines tranches d''ananas Victoria, menthe fraîche et poivre de Timut. Vegan.',        'dessert', ARRAY[]::TEXT[]),
-('b0000000-0000-0000-0000-000000000312', 'Bûche de Noël traditionnelle',          'Bûche roulée au chocolat et crème de marrons, décor festif.',                        'dessert', ARRAY['gluten','oeufs','lait']);
+('b0000000-0000-0000-0000-000000000312', 'Bûche de Noël traditionnelle',          'Bûche roulée au chocolat et crème de marrons, décor festif.',                        'dessert', ARRAY['gluten','oeufs','lait']),
+('b0000000-0000-0000-0000-000000000320', 'Pièce montée aux choux',                'Croquembouche traditionnel, choux crème pâtissière vanille, caramel filé et nougatine.', 'dessert', ARRAY['gluten','lait','oeufs']),
+('b0000000-0000-0000-0000-000000000321', 'Wedding cake aux fruits rouges',        'Gâteau nuptial à étages, crème mascarpone, coulis de fruits rouges et décor floral comestible.', 'dessert', ARRAY['gluten','lait','oeufs']),
+('b0000000-0000-0000-0000-000000000322', 'Duo de mignardises & macarons',         'Assortiment de macarons, mini éclairs, truffes au champagne et petits fours raffinés.', 'dessert', ARRAY['gluten','lait','oeufs','fruits_a_coque']);
 
 -- ============================================================
 -- MENUS (8 prestations traiteur)
@@ -506,9 +509,9 @@ INSERT INTO menu_dishes (menu_id, dish_id) VALUES
 ('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000206'), -- Lotte beurre blanc
 ('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000213'), -- Tournedos Rossini
 -- Desserts (3 choix)
-('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000304'), -- Fondant chocolat
-('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000310'), -- Charlotte fraises
-('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000305'); -- Crème brûlée
+('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000320'), -- Pièce montée
+('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000321'), -- Wedding cake
+('c0000000-0000-0000-0000-000000000003', 'b0000000-0000-0000-0000-000000000322'); -- Mignardises & macarons
 
 -- ── 4. Brunch - Vegan (100% végétal) ────────────────────────
 INSERT INTO menu_dishes (menu_id, dish_id) VALUES

@@ -1,8 +1,5 @@
 -- Migration: Système de messagerie contact avec conversations
--- Ajouter user_id sur contact_messages + table contact_replies
-
-ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS user_id UUID REFERENCES users(id) ON DELETE SET NULL;
-CREATE INDEX IF NOT EXISTS idx_contact_messages_user_id ON contact_messages(user_id);
+-- Table contact_replies pour les réponses admin
 
 CREATE TABLE IF NOT EXISTS contact_replies (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

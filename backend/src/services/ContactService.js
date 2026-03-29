@@ -29,10 +29,6 @@ class ContactService {
     return message;
   }
 
-  async getByUserId(userId) {
-    return this._contactRepo.getByUserId(userId);
-  }
-
   async markAsRead(id, userId) {
     const message = await this._contactRepo.markAsRead(id, userId);
     if (!message) throw new NotFoundError('Message non trouvé.');

@@ -696,6 +696,86 @@ class EmailService {
     });
   }
 
+  async sendMenuSelectionEmail(user, order, menu, dishes) {
+    const name = escapeHtml(user.first_name);
+    const menuTitle = escapeHtml(menu.title);
+    const reference = `CMD ${order.id.slice(0, 8).toUpperCase()}`;
+
+    const typeLabels = { entree: 'Entrées', plat: 'Plats', dessert: 'Desserts' };
+    const grouped = {};
+    for (const dish of dishes) {
+      if (!grouped[dish.type]) grouped[dish.type] = [];
+      grouped[dish.type].push(dish);
+    }
+
+    let dishesHtml = '';
+    for (const type of ['entree', 'plat', 'dessert']) {
+      const items = grouped[type];
+      if (!items || items.length === 0) continue;
+      dishesHtml += `
+        <tr>
+          <td colspan="2" style="padding:12px 8px 6px;font-weight:700;color:#c8a75e;border-bottom:2px solid #c8a75e;font-size:16px">
+            ${typeLabels[type]}
+          </td>
+        </tr>`;
+      for (const dish of items) {
+        dishesHtml += `
+        <tr>
+          <td style="padding:8px;border-bottom:1px solid #eee"><strong>${escapeHtml(dish.name)}</strong></td>
+          <td style="padding:8px;border-bottom:1px solid #eee;color:#666;font-size:13px">${dish.description ? escapeHtml(dish.description) : ''}</td>
+        </tr>`;
+      }
+    }
+
+    const hasPhone = Boolean(this._onSitePhone);
+    const contactEmail = this._from;
+
+    const deadlineDate = new Date(order.delivery_date);
+    deadlineDate.setDate(deadlineDate.getDate() - 7);
+    const deadlineStr = deadlineDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    await this._transporter.sendMail({
+      from: this._from,
+      to: user.email,
+      subject: `Commande ${reference} — Sélection de vos plats`,
+      html: `
+        <h1>Composez votre menu</h1>
+        <p>Bonjour ${name},</p>
+        <p>Suite à votre commande du menu <strong>${menuTitle}</strong> pour <strong>${order.nb_persons} personnes</strong>
+           le <strong>${order.delivery_date}</strong>, nous vous invitons à nous communiquer vos choix de plats
+           pour chaque convive.</p>
+
+        <h2 style="margin-top:24px">Les plats disponibles dans votre menu</h2>
+        <table style="border-collapse:collapse;width:100%">
+          ${dishesHtml}
+        </table>
+
+        <div style="margin:24px 0;padding:16px;background:#faf6ee;border-left:4px solid #c8a75e;border-radius:6px">
+          <p style="margin:0 0 8px;font-weight:700">Comment nous transmettre vos choix ?</p>
+          <p style="margin:0 0 4px">Pour chaque convive, indiquez l'entrée, le plat et le dessert choisis :</p>
+          <ul style="margin:8px 0">
+            ${hasPhone ? `<li>Par téléphone : <strong>${escapeHtml(this._onSitePhone)}</strong></li>` : ''}
+            <li>Par email : <strong><a href="mailto:${escapeHtml(contactEmail)}" style="color:#c8a75e">${escapeHtml(contactEmail)}</a></strong></li>
+          </ul>
+          <p style="margin:8px 0 0;font-size:13px;color:#888">
+            Merci de mentionner la référence <strong>${escapeHtml(reference)}</strong> dans votre message.
+          </p>
+        </div>
+
+        <p><strong>Date limite :</strong> merci de nous transmettre vos choix avant le <strong>${deadlineStr}</strong>
+           afin que nous puissions préparer votre événement dans les meilleures conditions.</p>
+
+        <p style="margin-top:20px">
+          <a href="${this._frontendUrl}/dashboard/orders/${order.id}" style="background:#c8a75e;color:#0b0b0e;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700">
+            Voir ma commande
+          </a>
+        </p>
+
+        <p>À très bientôt,<br/>L'équipe Vite &amp; Gourmand</p>
+      `,
+    });
+  }
+
   async sendQuoteExpiredEmail(user, quote) {
     const name = escapeHtml(user.first_name);
     await this._transporter.sendMail({
