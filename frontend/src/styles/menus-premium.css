@@ -596,17 +596,75 @@
 
   .mn-results { padding: 40px 24px 72px; }
 
+  .mn-filterbar { position: relative; }
   .mn-filterbar__inner { padding: 0 24px; }
-  .mn-filterbar__toggle { display: inline-flex; }
+
+  .mn-filterbar__toggle {
+    display: inline-flex;
+    gap: 10px;
+    font-size: .78rem;
+    color: var(--mn-gold);
+    border-bottom: 1px solid var(--mn-rule);
+  }
+
   .mn-filterbar__fields {
     display: none;
-    flex-wrap: wrap;
-    padding-bottom: 16px;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 0 12px;
   }
-  .mn-filterbar__fields--open { display: flex; }
-  .mn-field { flex: 1 1 calc(50% - 8px); min-width: 140px; }
-  .mn-field--actions { flex: 1 1 100%; }
-  .mn-reset { width: 100%; }
+
+  .mn-filterbar__fields--open {
+    display: flex;
+    animation: mnFilterSlide .2s ease-out;
+  }
+
+  @keyframes mnFilterSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .mn-field {
+    flex: 1 1 100%;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--mn-rule);
+  }
+
+  .mn-field label {
+    display: block;
+    font-size: .72rem;
+    margin-bottom: 8px;
+    color: var(--mn-gold);
+    opacity: .7;
+    text-align: left;
+  }
+
+  .mn-field select,
+  .mn-field input {
+    height: 44px;
+    font-size: .92rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .06);
+    border-color: rgba(198, 161, 91, .15);
+  }
+
+  .mn-field--actions {
+    padding-top: 16px;
+    border-bottom: none;
+  }
+
+  .mn-reset {
+    width: 100%;
+    height: 44px;
+    border-radius: 6px;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border-color: rgba(198, 161, 91, .25);
+    color: var(--mn-gold);
+  }
 }
 
 @media (max-width: 520px) {
@@ -619,8 +677,6 @@
 
   .mn-results { padding: 32px 20px 64px; }
   .mn-filterbar__inner { padding: 0 20px; }
-  .mn-filterbar__fields { flex-direction: column; }
-  .mn-field { flex: 1 1 100%; }
 
   .mn-card__footer {
     flex-direction: column;

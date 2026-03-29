@@ -243,7 +243,6 @@ export default function Prestations() {
               { label: 'Menus adaptés',             desc: 'Végétarien, vegan, sans gluten, halal — tous les régimes anticipés.' },
             ].map((e, i) => (
               <div className="pp-engage" key={e.label}>
-                <span className="pp-engage__num">{'0' + (i + 1)}</span>
                 <h3 className="pp-engage__title">{e.label}</h3>
                 <div className="pp-engage__rule" aria-hidden="true" />
                 <p className="pp-engage__desc">{e.desc}</p>

@@ -349,7 +349,7 @@ INSERT INTO dishes (id, name, description, type, allergens) VALUES
 ('b0000000-0000-0000-0000-000000000105', 'Velouté de butternut au lait de coco',  'Velouté onctueux de courge butternut, lait de coco et graines torréfiées. Vegan.',    'entree', ARRAY[]::TEXT[]),
 ('b0000000-0000-0000-0000-000000000106', 'Tartare de saumon aux agrumes',         'Saumon frais en tartare, vinaigrette aux agrumes et aneth.',                           'entree', ARRAY['poisson']),
 ('b0000000-0000-0000-0000-000000000107', 'Bruschetta tomates confites & burrata', 'Pain grillé garni de tomates confites, burrata crémeuse et basilic.',                 'entree', ARRAY['gluten','lait']),
-('b0000000-0000-0000-0000-000000000108', 'Salade de chèvre chaud & noix',         'Mesclun, toast de chèvre chaud, noix caramélisées et vinaigrette au miel.',           'entree', ARRAY['lait','fruits_a_coque']),
+('b0000000-0000-0000-0000-000000000108', 'Salade de chèvre chaud & noix',         'Mesclun, toast de chèvre chaud, noix caramélisées et vinaigrette au miel.',           'entree', ARRAY['lait','fruits a coque']),
 ('b0000000-0000-0000-0000-000000000109', 'Gaspacho andalou glacé',                'Gaspacho de tomates et poivrons rouges, servi glacé avec croûtons. Vegan.',           'entree', ARRAY[]::TEXT[]),
 ('b0000000-0000-0000-0000-000000000110', 'Blinis au crabe & citron',              'Blinis moelleux garnis de crabe effiloché et zeste de citron.',                       'entree', ARRAY['gluten','crustaces']),
 ('b0000000-0000-0000-0000-000000000111', 'Verrine mousse de betterave',           'Mousse légère de betterave, crème de raifort et graines germées. Vegan.',             'entree', ARRAY[]::TEXT[]),
@@ -383,14 +383,14 @@ INSERT INTO dishes (id, name, description, type, allergens) VALUES
 ('b0000000-0000-0000-0000-000000000305', 'Crème brûlée à la vanille',             'Crème brûlée classique à la vanille de Madagascar, caramélisée minute.',             'dessert', ARRAY['oeufs','lait']),
 ('b0000000-0000-0000-0000-000000000306', 'Tarte tatin aux pommes',                'Tarte tatin caramélisée aux pommes Golden, servie tiède avec crème fraîche.',        'dessert', ARRAY['gluten','oeufs','lait']),
 ('b0000000-0000-0000-0000-000000000307', 'Panna cotta aux fruits rouges',         'Panna cotta onctueuse, coulis de framboise et fruits rouges frais.',                 'dessert', ARRAY['lait']),
-('b0000000-0000-0000-0000-000000000308', 'Mousse au chocolat & éclats de noisettes','Mousse aérienne au chocolat noir, éclats de noisettes torréfiées.',                 'dessert', ARRAY['oeufs','lait','fruits_a_coque']),
+('b0000000-0000-0000-0000-000000000308', 'Mousse au chocolat & éclats de noisettes','Mousse aérienne au chocolat noir, éclats de noisettes torréfiées.',                 'dessert', ARRAY['oeufs','lait','fruits a coque']),
 ('b0000000-0000-0000-0000-000000000309', 'Sorbet artisanal trio de saveurs',      'Trio de sorbets : mangue, framboise et citron vert. 100% vegan.',                    'dessert', ARRAY[]::TEXT[]),
 ('b0000000-0000-0000-0000-000000000310', 'Charlotte aux fraises',                 'Charlotte aux fraises fraîches, biscuits cuillère et crème diplomate.',              'dessert', ARRAY['gluten','oeufs','lait']),
 ('b0000000-0000-0000-0000-000000000311', 'Carpaccio d''ananas & menthe fraîche',   'Fines tranches d''ananas Victoria, menthe fraîche et poivre de Timut. Vegan.',        'dessert', ARRAY[]::TEXT[]),
 ('b0000000-0000-0000-0000-000000000312', 'Bûche de Noël traditionnelle',          'Bûche roulée au chocolat et crème de marrons, décor festif.',                        'dessert', ARRAY['gluten','oeufs','lait']),
 ('b0000000-0000-0000-0000-000000000320', 'Pièce montée aux choux',                'Croquembouche traditionnel, choux crème pâtissière vanille, caramel filé et nougatine.', 'dessert', ARRAY['gluten','lait','oeufs']),
 ('b0000000-0000-0000-0000-000000000321', 'Wedding cake aux fruits rouges',        'Gâteau nuptial à étages, crème mascarpone, coulis de fruits rouges et décor floral comestible.', 'dessert', ARRAY['gluten','lait','oeufs']),
-('b0000000-0000-0000-0000-000000000322', 'Duo de mignardises & macarons',         'Assortiment de macarons, mini éclairs, truffes au champagne et petits fours raffinés.', 'dessert', ARRAY['gluten','lait','oeufs','fruits_a_coque']);
+('b0000000-0000-0000-0000-000000000322', 'Duo de mignardises & macarons',         'Assortiment de macarons, mini éclairs, truffes au champagne et petits fours raffinés.', 'dessert', ARRAY['gluten','lait','oeufs','fruits a coque']);
 
 -- ============================================================
 -- MENUS (8 prestations traiteur)

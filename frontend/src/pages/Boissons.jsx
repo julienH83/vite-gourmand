@@ -219,7 +219,6 @@ export default function Boissons() {
               { label: 'Tout est inclus', desc: "Livraison et mise en place sur site, repli et récupération du matériel. Aucun frais caché le jour J." },
             ].map((e, i) => (
               <div className="bv-engage" key={e.label}>
-                <span className="bv-engage__num">{'0' + (i + 1)}</span>
                 <h3 className="bv-engage__title">{e.label}</h3>
                 <div className="bv-engage__rule" aria-hidden="true" />
                 <p className="bv-engage__desc">{e.desc}</p>
