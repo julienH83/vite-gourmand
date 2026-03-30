@@ -24,25 +24,33 @@ docker compose up --build
 docker exec vg_api npm run seed
 ```
 
-## URLs de l'application
+## Application en production
 
-| Service       | URL                          |
-|---------------|------------------------------|
-| Frontend      | http://localhost:5173         |
-| API Backend   | http://localhost:3000/api     |
-| Mailhog (emails) | http://localhost:8025      |
-| PostgreSQL    | localhost:5432               |
-| MongoDB       | localhost:27017              |
+| Service       | URL                                              |
+|---------------|--------------------------------------------------|
+| Site web      | https://vite-gourmand-three.vercel.app           |
+| API Backend   | https://vite-gourmand.onrender.com/api           |
+| Health check  | https://vite-gourmand.onrender.com/api/health    |
 
-## Comptes de test
+## URLs développement local
 
-| Rôle        | Email                    | Mot de passe               |
-|-------------|--------------------------|----------------------------|
-| Admin       | admin@vitegourmand.fr    | *(voir fichier `.env`)*    |
-| Employé     | employe@vitegourmand.fr  | *(voir fichier `.env`)*    |
-| Utilisateur | user@vitegourmand.fr     | *(voir fichier `.env`)*    |
+| Service          | URL                          |
+|------------------|------------------------------|
+| Frontend         | http://localhost:5173         |
+| API Backend      | http://localhost:3000/api     |
+| Mailhog (emails) | http://localhost:8025        |
+| PostgreSQL       | localhost:5432               |
+| MongoDB          | localhost:27017              |
 
-> **Note :** Les identifiants de connexion sont définis dans le fichier `.env` (copié depuis `.env.example`). En production, chaque utilisateur dispose de son propre mot de passe sécurisé.
+## Comptes de démonstration
+
+| Rôle        | Email                    | Mot de passe   |
+|-------------|--------------------------|----------------|
+| Admin       | admin@vitegourmand.fr    | Admin123!@#    |
+| Employé     | employe@vitegourmand.fr  | Admin123!@#    |
+| Utilisateur | user@vitegourmand.fr     | Admin123!@#    |
+
+> **Note :** Ces comptes sont préconfigurés dans les données de démonstration. En production, changer immédiatement le mot de passe administrateur.
 
 ## Stack technique
 
