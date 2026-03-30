@@ -44,13 +44,13 @@ docker exec vg_api npm run seed
 
 ## Comptes de démonstration
 
-| Rôle        | Email                    | Mot de passe   |
-|-------------|--------------------------|----------------|
-| Admin       | admin@vitegourmand.fr    | Admin123!@#    |
-| Employé     | employe@vitegourmand.fr  | Admin123!@#    |
-| Utilisateur | user@vitegourmand.fr     | Admin123!@#    |
+| Rôle        | Email                    | Mot de passe               |
+|-------------|--------------------------|----------------------------|
+| Admin       | admin@vitegourmand.fr    | *(voir fichier `.env`)*    |
+| Employé     | employe@vitegourmand.fr  | *(voir fichier `.env`)*    |
+| Utilisateur | user@vitegourmand.fr     | *(voir fichier `.env`)*    |
 
-> **Note :** Ces comptes sont préconfigurés dans les données de démonstration. En production, changer immédiatement le mot de passe administrateur.
+> **Note :** Les identifiants sont définis dans le fichier `.env` (copié depuis `.env.example`). En production, changer immédiatement le mot de passe administrateur.
 
 ## Stack technique
 
