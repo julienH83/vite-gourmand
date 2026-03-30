@@ -50,7 +50,7 @@ docker exec vg_api npm run seed
 - **Backend :** Node.js + Express + express-validator
 - **BD Relationnelle :** PostgreSQL 16 (données métier)
 - **BD NoSQL :** MongoDB 7 (agrégations commandes) + PostgreSQL (scores clients)
-- **Auth :** JWT (access token : 24h · refresh token : 7j) + bcrypt 12 rounds
+- **Auth :** JWT (access token : 15min · refresh token : 7j) + bcrypt 12 rounds
 - **Emails :** Nodemailer + Mailhog (dev)
 - **Conteneurisation :** Docker + Docker Compose
 
