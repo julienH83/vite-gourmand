@@ -585,6 +585,48 @@
   color: var(--mn-muted);
 }
 
+/* ── Pagination ──────────────────────────────────────────── */
+.mn-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 48px;
+}
+
+.mn-pagination__btn {
+  min-width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--mn-rule);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mn-body);
+  font-size: .88rem;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.mn-pagination__btn:hover:not(:disabled):not(.mn-pagination__btn--active) {
+  border-color: var(--mn-gold);
+  color: var(--mn-gold);
+}
+
+.mn-pagination__btn--active {
+  background: var(--mn-gold);
+  border-color: var(--mn-gold);
+  color: #fff;
+  font-weight: 600;
+  cursor: default;
+}
+
+.mn-pagination__btn:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
 /* ── 7. Responsive ────────────────────────────────────────── */
 @media (max-width: 900px) {
   .mn-grid { grid-template-columns: repeat(2, 1fr); }

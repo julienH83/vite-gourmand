@@ -1,0 +1,207 @@
+<mxfile host="app.diagrams.net" version="24.0.0" type="device">
+  <diagram id="s2" name="Sequence Commande">
+    <mxGraphModel dx="1400" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="&lt;b&gt;Diagramme de sequence — Passer une commande&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="15" width="500" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- PARTICIPANTS -->
+        <mxCell id="pClient" value="&lt;b&gt;Client&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="pFrontend" value="&lt;b&gt;Frontend&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="120" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="pAPI" value="&lt;b&gt;API&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="pOrder" value="&lt;b&gt;OrderService&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="60" width="120" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="pDB" value="&lt;b&gt;PostgreSQL&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="60" width="100" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="pEmail" value="&lt;b&gt;EmailService&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="60" width="120" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- LIFELINES -->
+        <mxCell id="llClient" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;dashed=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="89" y="105" width="1" height="1020" as="geometry"/>
+        </mxCell>
+        <mxCell id="llFrontend" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;dashed=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="279" y="105" width="1" height="1020" as="geometry"/>
+        </mxCell>
+        <mxCell id="llAPI" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;dashed=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="469" y="105" width="1" height="1020" as="geometry"/>
+        </mxCell>
+        <mxCell id="llOrder" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;dashed=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="659" y="105" width="1" height="1020" as="geometry"/>
+        </mxCell>
+        <mxCell id="llDB" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;dashed=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="849" y="105" width="1" height="1020" as="geometry"/>
+        </mxCell>
+        <mxCell id="llEmail" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;dashed=1;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1039" y="105" width="1" height="1020" as="geometry"/>
+        </mxCell>
+
+        <!-- MESSAGES -->
+        <!-- 1. Client -> Frontend -->
+        <mxCell id="m1" value="1. Clique Reserver ce menu" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="160" as="sourcePoint"/>
+            <mxPoint x="279" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 2. Client -> Frontend -->
+        <mxCell id="m2" value="2. Saisit nb convives, adresse, date" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="210" as="sourcePoint"/>
+            <mxPoint x="279" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 3. Frontend -> Frontend (self) -->
+        <mxCell id="m3" value="3. Calcul prix auto (Nominatim+OSRM)" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;rounded=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="260" as="sourcePoint"/>
+            <mxPoint x="280" y="285" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="340" y="260"/>
+              <mxPoint x="340" y="285"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 4. Frontend -> Client (return) -->
+        <mxCell id="m4" value="4. Affiche recapitulatif prix" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279" y="315" as="sourcePoint"/>
+            <mxPoint x="90" y="315" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 5. Frontend -> API -->
+        <mxCell id="m5" value="5. POST /api/orders { menu_id, nb_persons, ... }" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="365" as="sourcePoint"/>
+            <mxPoint x="469" y="365" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 6. API -> OrderService -->
+        <mxCell id="m6" value="6. create(orderData, userId)" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="415" as="sourcePoint"/>
+            <mxPoint x="659" y="415" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Transaction box (dashed orange) -->
+        <mxCell id="txBox" value="&lt;b&gt;Transaction SQL&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;strokeWidth=2;dashed=1;dashPattern=6 3;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#d79b00;spacingTop=2;" vertex="1" parent="1">
+          <mxGeometry x="630" y="440" width="250" height="350" as="geometry"/>
+        </mxCell>
+
+        <!-- 7. OrderService -> PostgreSQL -->
+        <mxCell id="m7" value="7. BEGIN transaction" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="470" as="sourcePoint"/>
+            <mxPoint x="849" y="470" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 8. OrderService -> PostgreSQL -->
+        <mxCell id="m8" value="8. SELECT menu (verifie actif+stock)" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="520" as="sourcePoint"/>
+            <mxPoint x="849" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 9. PostgreSQL -> OrderService (return) -->
+        <mxCell id="m9" value="9. menu trouve" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="849" y="570" as="sourcePoint"/>
+            <mxPoint x="660" y="570" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 10. OrderService -> PostgreSQL -->
+        <mxCell id="m10" value="10. UPDATE stock = stock - 1" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="620" as="sourcePoint"/>
+            <mxPoint x="849" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 11. OrderService -> PostgreSQL -->
+        <mxCell id="m11" value="11. INSERT INTO orders RETURNING *" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="670" as="sourcePoint"/>
+            <mxPoint x="849" y="670" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 12. OrderService -> PostgreSQL -->
+        <mxCell id="m12" value="12. INSERT order_status_history" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="720" as="sourcePoint"/>
+            <mxPoint x="849" y="720" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 13. OrderService -> PostgreSQL -->
+        <mxCell id="m13" value="13. COMMIT" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="770" as="sourcePoint"/>
+            <mxPoint x="849" y="770" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 14. OrderService -> EmailService -->
+        <mxCell id="m14" value="14. sendOrderConfirmation()" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="820" as="sourcePoint"/>
+            <mxPoint x="1039" y="820" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 15. OrderService -> API (return) -->
+        <mxCell id="m15" value="15. order creee" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="659" y="870" as="sourcePoint"/>
+            <mxPoint x="470" y="870" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 16. API -> Frontend (return) -->
+        <mxCell id="m16" value="16. HTTP 201" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="469" y="920" as="sourcePoint"/>
+            <mxPoint x="280" y="920" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 17. Frontend -> Client (return) -->
+        <mxCell id="m17" value="17. Commande confirmee !" style="html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="279" y="970" as="sourcePoint"/>
+            <mxPoint x="90" y="970" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Rules note -->
+        <mxCell id="rulesNote" value="&lt;b&gt;Regles metier&lt;/b&gt;&lt;br&gt;- Stock decremente atomiquement (transaction)&lt;br&gt;- Statut initial : &amp;quot;en_attente&amp;quot;&lt;br&gt;- Email de confirmation envoye au client&lt;br&gt;- Prix calcule cote frontend (distance OSRM)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1020" width="320" height="90" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

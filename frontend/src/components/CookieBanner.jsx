@@ -2,23 +2,22 @@ import { useState, useEffect } from 'react';
 
 const COOKIE_KEY = 'vg_cookie_consent';
 
+function getConsent() {
+  try { return localStorage.getItem(COOKIE_KEY); } catch { return null; }
+}
+function setConsent(value) {
+  try { localStorage.setItem(COOKIE_KEY, value); } catch { /* storage indisponible */ }
+}
+
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_KEY);
-    if (!consent) setVisible(true);
+    if (!getConsent()) setVisible(true);
   }, []);
 
-  const accept = () => {
-    localStorage.setItem(COOKIE_KEY, 'accepted');
-    setVisible(false);
-  };
-
-  const refuse = () => {
-    localStorage.setItem(COOKIE_KEY, 'refused');
-    setVisible(false);
-  };
+  const accept = () => { setConsent('accepted'); setVisible(false); };
+  const refuse = () => { setConsent('refused'); setVisible(false); };
 
   if (!visible) return null;
 

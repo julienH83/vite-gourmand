@@ -112,6 +112,18 @@ export default function Menus() {
     return arr;
   }, [menus, sort]);
 
+  /* ── Pagination ───────────────────────────────────── */
+  const ITEMS_PER_PAGE = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(sortedMenus.length / ITEMS_PER_PAGE));
+  const paginatedMenus = sortedMenus.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE,
+  );
+
+  // Reset page when filters or sort change
+  useEffect(() => { setCurrentPage(1); }, [filters, sort]);
+
   const [filtersOpen, setFiltersOpen] = useState(false);
   const activeCount = Object.keys(filters).length;
 
@@ -265,7 +277,7 @@ export default function Menus() {
             </div>
           ) : (
             <div className="mn-grid" role="list" aria-label="Liste des menus">
-              {sortedMenus.map((menu) => {
+              {paginatedMenus.map((menu) => {
                 const title = menu?.title ?? 'Menu';
                 const desc = menu?.description ?? '';
                 const rating = Number(menu?.avg_rating ?? 0);
@@ -310,15 +322,13 @@ export default function Menus() {
                         )}
                       </div>
 
-                      {rating > 0 && (
-                        <div className="mn-card__rating">
-                          <span className="stars" aria-label={`Note ${rating.toFixed(1)} sur 5`}>
-                            {'★'.repeat(Math.round(rating))}
-                            {'☆'.repeat(5 - Math.round(rating))}
-                          </span>
-                          <small className="mn-card__reviews">{rating.toFixed(1)} ({reviews} avis)</small>
-                        </div>
-                      )}
+                      <div className="mn-card__rating">
+                        <span className="stars" aria-label={`Note ${rating.toFixed(1)} sur 5`}>
+                          {'★'.repeat(Math.round(rating))}
+                          {'☆'.repeat(5 - Math.round(rating))}
+                        </span>
+                        <small className="mn-card__reviews">{rating.toFixed(1)} ({reviews} avis)</small>
+                      </div>
 
                       {/* CTA */}
                       <div className="mn-card__footer">
@@ -334,6 +344,39 @@ export default function Menus() {
                 );
               })}
             </div>
+          )}
+
+          {/* ── PAGINATION ──────────────────────────────────────── */}
+          {!loading && totalPages > 1 && (
+            <nav className="mn-pagination" aria-label="Pagination des menus">
+              <button
+                className="mn-pagination__btn"
+                disabled={currentPage === 1}
+                onClick={() => { setCurrentPage(p => p - 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                aria-label="Page précédente"
+              >
+                &laquo;
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <button
+                  key={page}
+                  className={`mn-pagination__btn${page === currentPage ? ' mn-pagination__btn--active' : ''}`}
+                  onClick={() => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  aria-current={page === currentPage ? 'page' : undefined}
+                  aria-label={`Page ${page}`}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                className="mn-pagination__btn"
+                disabled={currentPage === totalPages}
+                onClick={() => { setCurrentPage(p => p + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                aria-label="Page suivante"
+              >
+                &raquo;
+              </button>
+            </nav>
           )}
         </div>
       </section>
