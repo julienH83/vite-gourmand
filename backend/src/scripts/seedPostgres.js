@@ -19,7 +19,7 @@ async function seedPasswords() {
   ];
 
   for (const { email, password } of passwords) {
-    const hash = await bcrypt.hash(password, 10);
+    const hash = await bcrypt.hash(password, 12);
     await pool.query('UPDATE users SET password_hash = $1 WHERE email = $2', [hash, email]);
     console.log(`Updated password hash for ${email}`);
   }

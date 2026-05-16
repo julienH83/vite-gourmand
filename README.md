@@ -29,8 +29,8 @@ docker exec vg_api npm run seed
 | Service       | URL                                              |
 |---------------|--------------------------------------------------|
 | Site web      | https://vite-gourmand-three.vercel.app           |
-| API Backend   | https://vite-gourmand.onrender.com/api           |
-| Health check  | https://vite-gourmand.onrender.com/api/health    |
+| API Backend   | https://vite-gourmand-api-x7jo.onrender.com/api        |
+| Health check  | https://vite-gourmand-api-x7jo.onrender.com/api/health |
 
 ## URLs développement local
 

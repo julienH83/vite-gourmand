@@ -7,4 +7,4 @@ Disallow: /order/
 Disallow: /reset-password
 Disallow: /api/
 
-Sitemap: https://www.vitegourmand.fr/sitemap.xml
+Sitemap: https://vite-gourmand-three.vercel.app/sitemap.xml
