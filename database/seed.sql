@@ -22,12 +22,12 @@ RESTART IDENTITY CASCADE;
 -- ============================================================
 -- USERS (dev)
 -- Mot de passe pour les 3 comptes: Admin123!@#
--- Hash bcrypt (10 rounds) : $2b$10$HGo7SODWBEQUcbuM1sjdvehPOy5dexZjfLkbkhG3kdqza4NMhx.E.
+-- Hash bcrypt (12 rounds, OWASP 2024) : $2b$12$qP.Cv1TVGyCE4f5sVOEJyuPxbAujZVpw3KUB1r63kXiPKdjsHWePa
 -- ============================================================
 INSERT INTO users (id, first_name, last_name, phone, email, address, country, role, password_hash, status, rgpd_consent, rgpd_consent_date) VALUES
-('a0000000-0000-0000-0000-000000000001', 'José',   'Durand',  '0600000001', 'admin@vitegourmand.fr',   '10 Place de la Bourse, 33000 Bordeaux',          'France', 'admin',    '$2b$10$HGo7SODWBEQUcbuM1sjdvehPOy5dexZjfLkbkhG3kdqza4NMhx.E.', 'active', true, '2024-01-01 10:00:00+01'),
-('a0000000-0000-0000-0000-000000000002', 'Julie',  'Morel',   '0600000002', 'employe@vitegourmand.fr', '5 Rue Sainte-Catherine, 33000 Bordeaux',          'France', 'employee', '$2b$10$HGo7SODWBEQUcbuM1sjdvehPOy5dexZjfLkbkhG3kdqza4NMhx.E.', 'active', true, '2024-01-15 10:00:00+01'),
-('a0000000-0000-0000-0000-000000000003', 'Camille','Bernard', '0600000003', 'user@vitegourmand.fr',    '15 Cours de l''Intendance, 33000 Bordeaux',        'France', 'user',     '$2b$10$HGo7SODWBEQUcbuM1sjdvehPOy5dexZjfLkbkhG3kdqza4NMhx.E.', 'active', true, '2024-02-01 10:00:00+01');
+('a0000000-0000-0000-0000-000000000001', 'José',   'Durand',  '0600000001', 'admin@vitegourmand.fr',   '10 Place de la Bourse, 33000 Bordeaux',          'France', 'admin',    '$2b$12$qP.Cv1TVGyCE4f5sVOEJyuPxbAujZVpw3KUB1r63kXiPKdjsHWePa', 'active', true, '2024-01-01 10:00:00+01'),
+('a0000000-0000-0000-0000-000000000002', 'Julie',  'Morel',   '0600000002', 'employe@vitegourmand.fr', '5 Rue Sainte-Catherine, 33000 Bordeaux',          'France', 'employee', '$2b$12$qP.Cv1TVGyCE4f5sVOEJyuPxbAujZVpw3KUB1r63kXiPKdjsHWePa', 'active', true, '2024-01-15 10:00:00+01'),
+('a0000000-0000-0000-0000-000000000003', 'Camille','Bernard', '0600000003', 'user@vitegourmand.fr',    '15 Cours de l''Intendance, 33000 Bordeaux',        'France', 'user',     '$2b$12$qP.Cv1TVGyCE4f5sVOEJyuPxbAujZVpw3KUB1r63kXiPKdjsHWePa', 'active', true, '2024-02-01 10:00:00+01');
 
 -- ============================================================
 -- BUSINESS HOURS

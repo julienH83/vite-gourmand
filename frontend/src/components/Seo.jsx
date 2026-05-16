@@ -4,7 +4,7 @@ const SITE_NAME = 'Vite & Gourmand';
 const DEFAULT_DESC =
   'Traiteur événementiel à Bordeaux — Menus raffinés pour mariages, séminaires et anniversaires. Livraison incluse.';
 const OG_IMAGE = '/images/og-image.jpg';
-const SITE_URL = 'https://www.vitegourmand.fr';
+const SITE_URL = 'https://vite-gourmand-three.vercel.app';
 
 /**
  * Composant SEO — injecte <title>, <meta description> et OG tags via react-helmet-async.
