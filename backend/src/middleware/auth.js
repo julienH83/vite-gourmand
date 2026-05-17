@@ -8,7 +8,7 @@ function authenticate(req, res, next) {
 
   const token = header.split(' ')[1];
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, process.env.JWT_SECRET, { algorithms: ['HS256'] });
     req.user = payload;
     next();
   } catch (err) {
@@ -33,7 +33,7 @@ function optionalAuth(req, res, next) {
   }
   const token = header.split(' ')[1];
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, process.env.JWT_SECRET, { algorithms: ['HS256'] });
     req.user = payload;
   } catch (err) {
     // Ignore invalid tokens for optional auth

@@ -95,7 +95,7 @@ class AuthService {
 
     let payload;
     try {
-      payload = jwt.verify(refreshToken, this._jwtConfig.refreshSecret);
+      payload = jwt.verify(refreshToken, this._jwtConfig.refreshSecret, { algorithms: ['HS256'] });
     } catch (err) {
       throw new UnauthorizedError('Token invalide ou expir\u00e9.');
     }
