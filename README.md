@@ -24,6 +24,13 @@ docker compose up --build
 docker exec vg_api npm run seed
 ```
 
+> Les scripts SQL de `database/` sont exécutés automatiquement par PostgreSQL au
+> premier `docker compose up`, dans cet ordre : `schema.sql`, `seed.sql`,
+> `quotes_migration.sql`, `payments_migration.sql`, `quotes-deposit-request.sql`,
+> `06-direct-order-deposits.sql`. Pour une installation **manuelle** (hors Docker),
+> exécuter les scripts dans ce même ordre. (`contact-replies-migration.sql` n'est
+> pas requis : la table est déjà créée par `schema.sql`.)
+
 ## Application en production
 
 | Service       | URL                                              |
@@ -71,11 +78,13 @@ vite-gourmand/
 ├── .env.example                # Variables d'environnement
 ├── smoke-test.ps1              # Script de tests automatisés
 ├── database/
-│   ├── schema.sql              # Schéma PostgreSQL (tables de base)
-│   ├── seed.sql                # Données de démonstration
-│   ├── quotes_migration.sql    # Migration : module devis (quotes, quote_items, quote_options, quote_status_history)
-│   ├── payments_migration.sql  # Migration : colonnes paiement sur orders
-│   └── quotes-deposit-request.sql # Migration : traçabilité envoi instructions acompte
+│   ├── schema.sql                    # Schéma PostgreSQL (tables, types, contraintes)
+│   ├── seed.sql                      # Données de démonstration
+│   ├── quotes_migration.sql          # Migration : module devis (quotes, quote_items, quote_options, quote_status_history)
+│   ├── payments_migration.sql        # Migration : paiement + statuts (deposit_pending, confirmed) sur orders
+│   ├── quotes-deposit-request.sql    # Migration : traçabilité envoi instructions acompte
+│   ├── 06-direct-order-deposits.sql  # Migration : acompte sur commande directe
+│   └── contact-replies-migration.sql # Réponses aux messages de contact (déjà inclus dans schema.sql)
 ├── backend/
 │   ├── Dockerfile
 │   ├── package.json
